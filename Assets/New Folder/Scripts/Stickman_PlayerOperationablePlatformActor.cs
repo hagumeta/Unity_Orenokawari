@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Stickman_PlayerOperationablePlatformActor : PlayerOperationablePlatformActor
 {
+    [System.NonSerialized]public Transform CheckPoint;
+    Vector3 startPosition;
 
-    public GameObject playerClearObj;
     private bool isCleared;
 
-    private Vector3 startPosition;
     override protected void Start()
     {
         base.Start();
@@ -41,36 +42,43 @@ public class Stickman_PlayerOperationablePlatformActor : PlayerOperationablePlat
         if (!this.IsFrozen)
         {
             GameObject other = collision.gameObject;
-            foreach (var death in this.DeathCollections)
-            {
-                if (death.DeathTag == other.tag)
-                {
-                    var corpse = death.Call(other.tag, this.transform.position, this.transform.localScale);
-                    this.Death(death.rebornTime);
-
-                    //クリアしてたらフォーカスは死体に押し付ける
-                    if (this.isCleared) {
-                        var cam = Camera.main.GetComponent<CameraController>();
-                        cam.FocusObject = corpse;
-                    }
-                }
-            }
+            this.CreateDeathCorpse(other.tag);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!this.IsFrozen) {
+            if (!collision.isTrigger) { return; }
             GameObject other = collision.gameObject;
-            foreach (var death in this.DeathCollections)
+            this.CreateDeathCorpse(other.tag);
+        }
+    }
+
+
+    protected void CreateDeathCorpse(string deathTag)
+    {
+        foreach (var death in this.DeathCollections)
+        {
+            if (death.DeathTag == deathTag)
             {
-                if (death.DeathTag == other.tag)
+                var corpse = death.Call(deathTag, this.transform.position, this.transform.localScale);
+                this.Death(death.rebornTime);
+
+
+                var cam = Camera.main.GetComponent<CameraController>();
+                //生き返るまでカメラを固定する
+                cam.Lock(death.rebornTime);
+                
+                //クリアしてたらフォーカスは死体に押し付ける
+                if (this.isCleared)
                 {
-                    death.Call(other.tag, this.transform.position, this.transform.localScale);
-                    this.Death(death.rebornTime);
+                    cam.FocusOnObject(corpse.transform);
                 }
             }
         }
     }
+
+
 
 
     public void Death(float rebornTime)
@@ -90,7 +98,12 @@ public class Stickman_PlayerOperationablePlatformActor : PlayerOperationablePlat
     {
         if (!this.isCleared) {
             this.IsFrozen = false;
+            
             this.transform.position = this.startPosition;
+            if (this.CheckPoint != null)
+            {
+                this.transform.position = this.CheckPoint.position;
+            }
         }
     }
 
@@ -111,7 +124,7 @@ public class Stickman_PlayerOperationablePlatformActor : PlayerOperationablePlat
     {
         var cam = Camera.main.GetComponent<CameraController>();
         if (cam != null) {
-            cam.FocusOnObject(this.gameObject, 2f, new Vector2(0, 1.5f));
+            cam.FocusOnObject(this.transform, 2f, new Vector2(0, 1.5f));
         }
         this.isCleared = true;
         this.Operation.Lock();

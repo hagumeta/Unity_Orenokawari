@@ -9770,7 +9770,7 @@ MonoBehaviour:
     RunSpeed: 3
     OnWallFallSpeed: 1
     WallJumpSpeed: 9
-    WallCatchTime: 0.15
+    WallCatchTime: 0.1
     CanWallJump: 1
   layerMask:
     serializedVersion: 2
