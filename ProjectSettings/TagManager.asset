@@ -9,6 +9,7 @@ TagManager:
   - Block
   - PlayerKiller_Needle
   - PlayerKiller_Fire
+  - StageInfoDisplayer
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Player
   - Obstacle
   - Block
-  - Killer
+  - Gimicks
   - Backgrounds
   - 
   - 
