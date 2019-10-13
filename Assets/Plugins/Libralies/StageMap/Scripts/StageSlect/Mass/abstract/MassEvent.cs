@@ -22,6 +22,15 @@ abstract public class MassEvent : MonoBehaviour {
         }
     }
 
+    private void Update()
+    {
+        if (this.IsSelected) {
+            this.actionOnSelected();
+        }
+    }
+
+
     abstract protected void actionSelected();
     abstract protected void actionUnSelected();
+    abstract protected void actionOnSelected();
 }

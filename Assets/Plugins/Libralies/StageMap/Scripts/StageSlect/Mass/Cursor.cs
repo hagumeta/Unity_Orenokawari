@@ -51,21 +51,25 @@ public abstract class Cursor : MonoBehaviour {
 	}
 
 
-    protected void MoveToMass(Mass nextMass)
+    public void MoveToMass(Mass nextMass, bool immediate = false)
     {
         if (nextMass != null && nextMass.IsActive) {
-            this.MoveTo(nextMass.transform);
+            if (immediate) {
+                this.MoveTo(nextMass.transform, 10000f);
+            } else {
+                this.MoveTo(nextMass.transform, this.moveSpeed);
+            }
             this.currentMass = nextMass;
         }
     }
 
-    private void MoveTo(Transform target)
+    private void MoveTo(Transform target, float moveSpeed)
     {
         this.BeforeMoveAction();
 
         var dist = (target.position - this.transform.position).magnitude;
-        if (this.moveSpeed > 0) {
-            float time = Mathf.Clamp(dist / this.moveSpeed, 0.1f, 2f);
+        if (moveSpeed > 0) {
+            float time = Mathf.Clamp(dist / moveSpeed, Time.deltaTime, 2f);
 
             this.transform.DOMove(target.transform.position, time).SetEase(Ease.Linear);
             this.Lock(time-0.05f);
@@ -78,6 +82,10 @@ public abstract class Cursor : MonoBehaviour {
         if (unlockTime > 0)
         {
             Invoke("UnLock", unlockTime);
+        }
+        else
+        {
+            Invoke("UnLock", Time.deltaTime);
         }
     }
     protected void UnLock()

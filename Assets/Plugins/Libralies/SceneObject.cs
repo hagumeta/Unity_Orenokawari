@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -8,6 +10,8 @@ public class SceneObject
 {
     [SerializeField]
     private string m_SceneName;
+    [SerializeField]
+    private string m_path;
 
     public static implicit operator string(SceneObject sceneObject)
     {
@@ -17,6 +21,21 @@ public class SceneObject
     public static implicit operator SceneObject(string sceneName)
     {
         return new SceneObject() { m_SceneName = sceneName };
+    }
+
+    public static implicit operator SceneObject(Scene scene)
+    {
+        return new SceneObject() { m_SceneName = scene.name };
+    }
+
+    public string Path
+    {
+        get => this.m_path;
+    }
+
+    public static implicit operator int(SceneObject sceneObject)
+    {
+        return  SceneUtility.GetBuildIndexByScenePath(sceneObject.Path);
     }
 }
 
@@ -49,7 +68,9 @@ public class SceneObjectEditor : PropertyDrawer
         if (newScene == null)
         {
             var prop = property.FindPropertyRelative("m_SceneName");
+            var prop2 = property.FindPropertyRelative("m_path");
             prop.stringValue = "";
+            prop2.stringValue = "";
         }
         else
         {
@@ -63,7 +84,9 @@ public class SceneObjectEditor : PropertyDrawer
                 else
                 {
                     var prop = property.FindPropertyRelative("m_SceneName");
+                    var prop2 = property.FindPropertyRelative("m_path");
                     prop.stringValue = newScene.name;
+                    prop2.stringValue = AssetDatabase.GetAssetPath(newScene);
                 }
             }
         }

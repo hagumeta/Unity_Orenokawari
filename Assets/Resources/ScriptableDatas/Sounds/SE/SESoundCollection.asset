@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96d34c5da3d24c146b4db3679b40df72, type: 3}
+  m_Name: SESoundCollection
+  m_EditorClassIdentifier: 
+  menuEnterSound: {fileID: 8300000, guid: f5690b26d5e0d6a40b5b5d08c37fc2b6, type: 3}
+  menuSelectSound: {fileID: 8300000, guid: efd48fd007c4118438c1d00ee856a872, type: 3}
+  menuBackSound: {fileID: 8300000, guid: 387934092e722b94ebe500f87a3a34dd, type: 3}

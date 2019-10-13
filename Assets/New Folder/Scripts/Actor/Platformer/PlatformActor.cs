@@ -95,6 +95,19 @@ public class PlatformActor : MonoBehaviour {
         }
     }
 
+    protected virtual void FixedUpdate()
+    {
+        //走るエフェクト
+        if (this.CurrentState.IsRunning && this.CurrentState.IsLanding)
+        {
+            this.RunEffect.Emit((int)Random.RandomRange(0, 2));
+        }
+        //壁エフェクト
+        if (this.CurrentState.IsWallCatching)
+        {
+            this.PlayEffect(this.WallCatchEffect);
+        }
+    }
 
 
     /// <summary>
@@ -112,20 +125,10 @@ public class PlatformActor : MonoBehaviour {
             this.CurrentState.UpdateState();
             this.Animation.UpdateAnimation();
 
-            //走るエフェクト
-            if (this.CurrentState.IsRunning && this.CurrentState.IsLanding)
-            {
-                if (this.RunEffect != null) { this.RunEffect.Emit((int)Random.RandomRange(0, 2)); }
-            }
             //着地エフェクト
             if (this.CurrentState.IsLandingNow)
             {
                 this.PlayEffect(this.LandEffect);
-            }
-            //壁エフェクト
-            if (this.CurrentState.IsWallCatching)
-            {
-                this.PlayEffect(this.WallCatchEffect);
             }
         }
     }
@@ -189,7 +192,7 @@ public class PlatformActor : MonoBehaviour {
 
             if (!this.IsLanding)
             {//空中にいるとき
-                if (this.Actor.VerticalSpeed > 0)
+                if (this.Actor.VerticalSpeed > 0f)
                 {   //上昇中
                     this.IsFalling = false;
                     this.IsJumping = true;

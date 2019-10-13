@@ -7,6 +7,9 @@ using CameraControll;
 [RequireComponent(typeof(Camera_TrackTransform))]
 public class CameraController : MonoBehaviour
 {
+    [SerializeField]
+    private bool move_lock;
+
     private Transform FocusObject;
     private float defaultSize;
     private Vector3 defaultPosition;
@@ -14,6 +17,12 @@ public class CameraController : MonoBehaviour
     private Vector2 diff = Vector2.zero;
 
     private Abs_CameraContent[] cameraContents;
+
+    public bool Move_lock
+    {
+        get => this.move_lock;
+        set => this.move_lock = value;
+    }
 
     private float FocusSize
     {
@@ -40,12 +49,13 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        if (this.FocusObject != null)
+        if (this.FocusObject != null && !this.move_lock)
         {
             this.transform.position = new Vector3(this.FocusObject.transform.position.x, this.FocusObject.transform.position.y, this.defaultPosition.z) + (Vector3)this.diff;
         }
     }
 
+    
 
     public void FocusOnObject(Transform targetObjectTransform, float FocusSize, Vector2 diff)
     {

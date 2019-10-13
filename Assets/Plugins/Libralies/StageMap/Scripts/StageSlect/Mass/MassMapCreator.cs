@@ -10,9 +10,9 @@ public class MassMapCreator : MonoBehaviour{
     public Vector2Int MassMap;
     public float MassDist;
     public GameObject MassObject;
+    protected Mass[,] Masses;
 
-
-    public void MapCreate()
+    public virtual void MapCreate()
     {
         if (this.MassObject == null || this.MassMap.x == 0 || this.MassMap.y == 0)
         {
@@ -25,7 +25,7 @@ public class MassMapCreator : MonoBehaviour{
         }
 
 
-        Mass [, ]Masses = new Mass[MassMap.x, MassMap.y];
+        this.Masses = new Mass[MassMap.x, MassMap.y];
 
 
         for (int i=0; i<MassMap.x; i++)
@@ -36,7 +36,7 @@ public class MassMapCreator : MonoBehaviour{
                 var obj = Instantiate(this.MassObject, this.transform);
                 obj.transform.position = this.transform.position + dist;
 
-                Masses[i, j] = obj.GetComponent<Mass>();
+                this.Masses[i, j] = obj.GetComponent<Mass>();
             }
         }
 
@@ -83,7 +83,7 @@ public class MassMapCreator : MonoBehaviour{
     }
 }
 
-
+#if UNITY_EDITOR
 [CustomEditor(typeof(MassMapCreator))]
 public class CustomMapEditor : Editor
 {
@@ -137,3 +137,4 @@ public class CustomMapEditor : Editor
         }
     }
 }
+#endif

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfc63b97007bfa748ac6d6f3726fdd55, type: 3}
+  m_Name: "stage_\u3061\u3087\u3063\u3068\u71B1\u3044\u8C37"
+  m_EditorClassIdentifier: 
+  StageScene:
+    m_SceneName: Stage_6
+    m_path: Assets/Scenes/Stages/Stage_6.unity
+  StageName: "\u3061\u3087\u3063\u3068\u71B1\u3044\u8C37"
+  MaxCoinAmount: 40

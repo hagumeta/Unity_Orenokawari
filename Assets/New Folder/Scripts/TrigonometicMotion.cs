@@ -63,7 +63,7 @@ public class TrigonometicMotion : MonoBehaviour {
     }
 
 
-    void Update () {
+    void FixedUpdate () {
         Vector3 pos = new Vector3(this.H_Motion.Output, this.V_Motion.Output, this.Z_Motion.Output);
 
         this.transform.localPosition = this.fundPosition + pos;

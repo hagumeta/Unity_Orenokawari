@@ -17,6 +17,21 @@ TextureImporter:
   - first:
       213: -3454217403286696441
     second: spr_stickman_piece_4
+  - first:
+      213: -6374090972569907303
+    second: tex_stickman_piece_0
+  - first:
+      213: -5710927649831208501
+    second: tex_stickman_piece_1
+  - first:
+      213: -2753654142866248513
+    second: tex_stickman_piece_2
+  - first:
+      213: -1260818121324788436
+    second: tex_stickman_piece_3
+  - first:
+      213: -8324143894826974642
+    second: tex_stickman_piece_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -60,7 +75,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -73,7 +88,7 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -84,7 +99,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -95,7 +111,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -106,7 +123,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -117,7 +135,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -128,17 +147,18 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_stickman_piece_0
+      name: tex_stickman_piece_0
       rect:
         serializedVersion: 2
-        x: 22
+        x: 0
         y: 0
-        width: 25
-        height: 56
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 110ba8fd04c44344a9c97c24ebb4d1e8
-      internalID: -7214435392138330484
+      spriteID: 0ccb683dfef504f409f918ecda2a4bdc
+      internalID: -6374090972569907303
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_stickman_piece_1
+      name: tex_stickman_piece_1
       rect:
         serializedVersion: 2
-        x: 86
+        x: 64
         y: 0
-        width: 26
-        height: 56
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a23947648d5d513459213bdb3c1d8c6e
-      internalID: -4829182096577664673
+      spriteID: e384897c451b18a43b9b83958003f12d
+      internalID: -5710927649831208501
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_stickman_piece_2
+      name: tex_stickman_piece_2
       rect:
         serializedVersion: 2
-        x: 151
+        x: 128
         y: 0
-        width: 26
-        height: 55
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5965516e5430ff54c9165d074e4562f8
-      internalID: 7266712386121931873
+      spriteID: 02eac2a544cc34448809dcd1e90689b9
+      internalID: -2753654142866248513
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_stickman_piece_3
+      name: tex_stickman_piece_3
       rect:
         serializedVersion: 2
-        x: 216
+        x: 192
         y: 0
-        width: 28
-        height: 54
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,20 +229,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e88c8a81871e47c438441a500648f40d
-      internalID: 394833623881534490
+      spriteID: 426925fdfeb23db4a9a4076f2275e6da
+      internalID: -1260818121324788436
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_stickman_piece_4
+      name: tex_stickman_piece_4
       rect:
         serializedVersion: 2
-        x: 278
+        x: 256
         y: 0
-        width: 32
-        height: 58
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -230,8 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4968896757138f54786056f18676402d
-      internalID: -3454217403286696441
+      spriteID: efff60ad0af216f45b832cccf97ce09a
+      internalID: -8324143894826974642
       vertices: []
       indices: 
       edges: []

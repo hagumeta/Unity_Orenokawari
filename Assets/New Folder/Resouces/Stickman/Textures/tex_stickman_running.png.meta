@@ -35,6 +35,39 @@ TextureImporter:
   - first:
       213: 5597408348872075595
     second: spr_stickman_running_strip11_10
+  - first:
+      213: 5210621780008505007
+    second: tex_stickman_running_0
+  - first:
+      213: 7019136684856044303
+    second: tex_stickman_running_1
+  - first:
+      213: -6489436648158779168
+    second: tex_stickman_running_2
+  - first:
+      213: 4969009367929541136
+    second: tex_stickman_running_3
+  - first:
+      213: 8840206947157801560
+    second: tex_stickman_running_4
+  - first:
+      213: -1912283813061083469
+    second: tex_stickman_running_5
+  - first:
+      213: 8429688587077687376
+    second: tex_stickman_running_6
+  - first:
+      213: -1026214322301224714
+    second: tex_stickman_running_7
+  - first:
+      213: -2548979268134470487
+    second: tex_stickman_running_8
+  - first:
+      213: -4619800226398299742
+    second: tex_stickman_running_9
+  - first:
+      213: 2243452400061699438
+    second: tex_stickman_running_10
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -78,7 +111,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -91,7 +124,7 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -102,7 +135,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -113,7 +147,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -124,7 +159,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -135,7 +171,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -146,17 +183,18 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_stickman_running_strip11_0
+      name: tex_stickman_running_0
       rect:
         serializedVersion: 2
-        x: 15
+        x: 0
         y: 0
-        width: 38
-        height: 53
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,20 +202,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab9f86f2386ecaf44af968c197c0bbe3
-      internalID: 7099760792281419073
+      spriteID: f9455cee4a6eb3840be47c3f928d5d58
+      internalID: 5210621780008505007
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_stickman_running_strip11_1
+      name: tex_stickman_running_1
       rect:
         serializedVersion: 2
-        x: 83
+        x: 64
         y: 0
-        width: 35
-        height: 53
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,20 +223,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acbc2e164e48dbc4e965c597f5c36d0e
-      internalID: 7980349143156456422
+      spriteID: 6cd97f8c9512d084d9b3be1837e01e81
+      internalID: 7019136684856044303
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_stickman_running_strip11_2
+      name: tex_stickman_running_2
       rect:
         serializedVersion: 2
-        x: 147
+        x: 128
         y: 0
-        width: 35
-        height: 53
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,20 +244,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a7dbd369a9cd654cb903a116533d876
-      internalID: 3264091065723546574
+      spriteID: 0576499701325564aa0bb7dc30ccf5d0
+      internalID: -6489436648158779168
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_stickman_running_strip11_3
+      name: tex_stickman_running_3
       rect:
         serializedVersion: 2
-        x: 213
+        x: 192
         y: 0
-        width: 34
-        height: 52
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,20 +265,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a381244717c5d2741a8bc7b1ecc860ea
-      internalID: -3881010062493908546
+      spriteID: 6f086031d3b4e7a49b69fa08bc76949e
+      internalID: 4969009367929541136
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_stickman_running_strip11_4
+      name: tex_stickman_running_4
       rect:
         serializedVersion: 2
-        x: 277
+        x: 256
         y: 0
-        width: 34
-        height: 52
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,104 +286,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f89174e06ac086458b6ece96e78647c
-      internalID: -8086810522383424702
+      spriteID: eb80ebf19fd6b3043b4beba4c0336361
+      internalID: 8840206947157801560
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_stickman_running_strip11_5
+      name: tex_stickman_running_5
       rect:
         serializedVersion: 2
-        x: 334
-        y: 1
-        width: 41
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c63d78742e3c1e04bb9331edeb3ab084
-      internalID: -8035600764372768009
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_stickman_running_strip11_6
-      rect:
-        serializedVersion: 2
-        x: 398
-        y: 2
-        width: 41
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 913e5eb1d3b40c843aaae788f42a6949
-      internalID: 7175052509542034804
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_stickman_running_strip11_7
-      rect:
-        serializedVersion: 2
-        x: 462
-        y: 2
-        width: 41
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 03df2bceac5689d48bbd0ffced0ac8b7
-      internalID: 1198910531456238554
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_stickman_running_strip11_8
-      rect:
-        serializedVersion: 2
-        x: 526
-        y: 1
-        width: 41
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 280b9d98559ad7f4da189988363a303d
-      internalID: 8568826737899465725
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_stickman_running_strip11_9
-      rect:
-        serializedVersion: 2
-        x: 597
+        x: 320
         y: 0
-        width: 34
-        height: 52
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -353,20 +307,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b4fd1c0ab4f16947910dcdea0ed5a6c
-      internalID: -4552873634126514572
+      spriteID: ea99572825730d0408a59eaf9cd93c86
+      internalID: -1912283813061083469
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_stickman_running_strip11_10
+      name: tex_stickman_running_6
       rect:
         serializedVersion: 2
-        x: 661
+        x: 384
         y: 0
-        width: 34
-        height: 52
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -374,8 +328,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fd4093607b6e404ba384a78fbb2d893
-      internalID: 5597408348872075595
+      spriteID: f3840a4b9ce8aca46a0c63b7098ac0f9
+      internalID: 8429688587077687376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tex_stickman_running_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d821ed3d98a9d16478f84245346d9035
+      internalID: -1026214322301224714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tex_stickman_running_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb094cd9017d5c3489ee12a8933340d4
+      internalID: -2548979268134470487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tex_stickman_running_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fb5aaefe08b46845a9a1c44a3981e2e
+      internalID: -4619800226398299742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tex_stickman_running_10
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fdecbb14e9971242a5b70fa1bcf336b
+      internalID: 2243452400061699438
       vertices: []
       indices: 
       edges: []

@@ -38,6 +38,14 @@ public class Cursor_forMassEvent : Cursor {
         }
     }
     
+    public void MoveToMass(MassEvent massEvent, bool immediate = false)
+    {
+        var mass = massEvent.GetComponent<Mass>();
+        if (mass != null)
+        {
+            this.MoveToMass(mass, immediate);
+        }
+    }
 
     protected override void BeforeMoveAction()
     {

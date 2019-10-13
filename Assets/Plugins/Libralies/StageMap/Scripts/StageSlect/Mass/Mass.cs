@@ -168,21 +168,18 @@ public class Mass : MonoBehaviour {
     /// </summary>
     public void ResolveMassBidirectionalConnection()
     {
+#if UNITY_EDITOR
         if (this.next.up != null){ this.next.up.next.down = this; EditorUtility.SetDirty(this.next.up); }
         if (this.next.down != null) { this.next.down.next.up = this; EditorUtility.SetDirty(this.next.down); }
         if (this.next.right != null) { this.next.right.next.left = this; EditorUtility.SetDirty(this.next.right); }
         if (this.next.left != null) { this.next.left.next.right = this; EditorUtility.SetDirty(this.next.left); }
+#endif
+
     }
 }
 
 
-
-
-
-
-
-
-
+#if UNITY_EDITOR
 [CustomEditor(typeof(Mass))]
 public class MassEditor : Editor
 {
@@ -336,3 +333,4 @@ public class MassEditor : Editor
         }
     }
 }
+#endif

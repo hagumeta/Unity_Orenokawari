@@ -10,13 +10,16 @@ public class OperationablePlatformActor : PlatformActor {
     public ButtonOperation Operation;
     public ActionOfMovementStatus ActionStatus;
     public LayerMask layerMask;
-    
+
     //入力を受けた結果，移動する方向(左：-1  右:1  動かない:0)
     private float moveHorizontalAxis;
 
     private float WallJumpCoolTime = 0.2f;
     private bool IsActionLocked = false;
     private float wallCatchedTime = 0;
+
+
+    private bool jumpPressedFlag = false;
 
     /// <summary>
     /// 毎フレームの更新
@@ -35,9 +38,9 @@ public class OperationablePlatformActor : PlatformActor {
             {
                 //入力アリなら入力方向に設定(1 or -1 or 0)
                 RaycastHit2D hit, hit2, hit3;
-                hit = Physics2D.Linecast(this.transform.position + new Vector3(0, -0.12f), this.transform.position + new Vector3(this.Operation.Horizontal.AxisRaw * 0.16f, -0.2f), this.layerMask);
-                hit2 = Physics2D.Linecast(this.transform.position + new Vector3(0, -0f), this.transform.position + new Vector3(this.Operation.Horizontal.AxisRaw * 0.16f, -0.2f), this.layerMask);
-                hit3 = Physics2D.Linecast(this.transform.position + new Vector3(0, 0.1f), this.transform.position + new Vector3(this.Operation.Horizontal.AxisRaw * 0.16f, -0.1f), this.layerMask);
+                hit = Physics2D.Linecast(this.transform.position + new Vector3(0, -0.12f), this.transform.position + new Vector3(this.Operation.Horizontal.AxisRaw * 0.26f, -0.3f), this.layerMask);
+                hit2 = Physics2D.Linecast(this.transform.position + new Vector3(0, -0f), this.transform.position + new Vector3(this.Operation.Horizontal.AxisRaw * 0.26f, -0.3f), this.layerMask);
+                hit3 = Physics2D.Linecast(this.transform.position + new Vector3(0, 0.1f), this.transform.position + new Vector3(this.Operation.Horizontal.AxisRaw * 0.26f, -0.5f), this.layerMask);
 
                 if (hit.transform == null && hit2.transform == null && hit3.transform == null)
                 {
@@ -49,7 +52,7 @@ public class OperationablePlatformActor : PlatformActor {
                     {
                         if (this.CurrentState.IsFalling && !this.CurrentState.IsLanding)
                         {
-                            if (hit2.transform != null)
+                            if (hit2.transform != null || hit.transform != null || hit3.transform != null)
                             {
                                 this.CurrentState.IsWallCatching = true;
                                 this.FacingDirectionHorizontal = (int)this.Operation.Horizontal.AxisRaw;
@@ -82,16 +85,11 @@ public class OperationablePlatformActor : PlatformActor {
                 }
             }
 
-            //ジャンプに関してのみ，即座に反応させる為Updateに記述．
             if (this.Operation.Jump.IsPressed)
             {
-                if (this.CurrentState.IsLanding)
+                if (this.CurrentState.IsLanding || this.CurrentState.IsWallCatching)
                 {
-                    this.Jump();
-                }
-                if (this.CurrentState.IsWallCatching)
-                {
-                    this.WallJump();
+                    this.jumpPressedFlag = true;
                 }
             }
         }
@@ -121,21 +119,38 @@ public class OperationablePlatformActor : PlatformActor {
     /// 毎フレームの更新
     /// 受け付けた入力を物理エンジンに反映
     /// </summary>
-    private void FixedUpdate()
+    protected override void FixedUpdate()
     {
+        base.FixedUpdate();
         if (!this.IsFrozen) {
             if (!this.IsActionLocked)
             {
                 this.HorizontalSpeed = this.moveHorizontalAxis * this.ActionStatus.RunSpeed;
 
-                if (this.CurrentState.IsJumping && !this.Operation.Jump.IsPressing)
+                if (this.CurrentState.IsJumping)
                 {
-                    this.VerticalSpeed *= 0.85f;
+                    if (!this.Operation.Jump.IsPressing) {
+                        this.VerticalSpeed *= 0.8f;
+                    }
                 }
 
                 if (this.CurrentState.IsWallCatching)
                 {
                     this.VerticalSpeed = -this.ActionStatus.OnWallFallSpeed;
+                }
+                this.Rigidbody.AddForce(new Vector2(0, -this.ActionStatus.AdditionalGravity));
+
+                if (this.jumpPressedFlag)
+                {
+                    if (this.CurrentState.IsLanding)
+                    {
+                        this.Jump();
+                    }
+                    if (this.CurrentState.IsWallCatching)
+                    {
+                        this.WallJump();
+                    }
+                    this.jumpPressedFlag = false;
                 }
             }
         }
@@ -160,7 +175,7 @@ public class OperationablePlatformActor : PlatformActor {
     public class ActionOfMovementStatus
     {
         public float JumpSpeed, RunSpeed;
-        public float OnWallFallSpeed, WallJumpSpeed, WallCatchTime;
+        public float OnWallFallSpeed, WallJumpSpeed, WallCatchTime, AdditionalGravity;
         public bool CanWallJump;
     }
 
