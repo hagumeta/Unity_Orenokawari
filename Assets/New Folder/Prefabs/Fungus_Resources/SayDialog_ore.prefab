@@ -717,7 +717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a0bbe22c246e4c78ad8e9816cbae9d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDuration: 0.25
+  fadeDuration: 0.1
   continueButton: {fileID: 6423334575419275344}
   dialogCanvas: {fileID: 6423334575407244574}
   nameText: {fileID: 6423334575419214596}

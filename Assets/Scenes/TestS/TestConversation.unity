@@ -237,6 +237,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6423334575419214846, guid: cdd9ad8e571b12245b9a9a288efbe37a,
+        type: 3}
+      propertyPath: closeOtherDialogs
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423334575419214846, guid: cdd9ad8e571b12245b9a9a288efbe37a,
+        type: 3}
+      propertyPath: fadeDuration
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3365833895700363409, guid: cdd9ad8e571b12245b9a9a288efbe37a,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -676,6 +686,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1354222815 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6423334575419214846, guid: cdd9ad8e571b12245b9a9a288efbe37a,
+    type: 3}
+  m_PrefabInstance: {fileID: 510131315}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a0bbe22c246e4c78ad8e9816cbae9d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8751697983308041568
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -747,6 +769,6 @@ PrefabInstance:
         type: 3}
       propertyPath: setSayDialog
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1354222815}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5954eb9ca8ddf7438a12cafb1699ff8, type: 3}
