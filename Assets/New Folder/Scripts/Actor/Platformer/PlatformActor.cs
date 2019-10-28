@@ -14,7 +14,15 @@ public class PlatformActor : MonoBehaviour {
     [SerializeField]
     protected ParticleSystem WallCatchEffect;
 
-    public bool IsFrozen = false;
+    public bool isFrozen = false;
+    public bool IsFrozen
+    {
+        get => this.isFrozen;
+        set
+        {
+            this.isFrozen = value;
+        }
+    }
 
 
     //メンバ変数

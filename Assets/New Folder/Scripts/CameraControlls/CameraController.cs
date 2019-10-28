@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour
         set => this.move_lock = value;
     }
 
-    private float FocusSize
+    public float FocusSize
     {
         get { return this.camera.orthographicSize; }
         set

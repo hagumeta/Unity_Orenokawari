@@ -6,10 +6,73 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 using Game.StageSelect;
 
-namespace Game.Stage
+namespace Game.Stage.Manager
 {
+    [RequireComponent(typeof(CoinScoreManager))]
+    [RequireComponent(typeof(PlayerDeathManager))]
+
     public class StageManager : SingletonMonoBehaviourFast<StageManager>
     {
+
+        [SerializeField] private SceneObject returnToScene;
+        [SerializeField] private StageData stageData;
+        [SerializeField] private WorldData worldData;
+
+        private CoinScoreManager coinScoreManager;
+        private PlayerDeathManager playerDeathManager;
+
+
+
+        public StageData StageData
+            => this.stageData;
+        public WorldData WorldData
+            => this.worldData;
+        private int StageID
+            => this.StageData.StageId;
+
+        private DeathCounts myDeathCounts
+            => this.playerDeathManager.DeathCounts;
+        private CoinScore myCoinScore
+            => this.coinScoreManager.CoinScore;
+
+
+
+        public static DeathCounts MyDeathCounts
+            => Instance.myDeathCounts;
+        public static CoinScore MyCoinScore
+            => Instance.myCoinScore;
+
+        /*
+        //
+                public static DeathCounts MyDeathCounts
+                    => Instance.deathCounts;
+                public static CoinScore MyCoinScore
+                    => Instance.coinScore;
+
+                private CoinScore coinScore;
+
+
+
+        //
+                private DeathCounts deathCounts;
+                public static void PlayerDeath(DeathType deathType)
+                {
+                    Instance.DeathCountUp(deathType);
+                    Instance.Invoke("RebornPlayer", 1f);
+                }
+                /// <summary>
+                /// 対応する死亡タイプのデス数をカウントアップする
+                /// </summary>
+                /// <param name="deathType"></param>
+                private void DeathCountUp(DeathType deathType)
+                {
+                    Instance.deathCounts.CountUp(deathType);
+                    GameEventManager.PlayerDeathEvent.Raise(deathType);
+        //            GameEventManager.DeathCountChangedEvent.Raise();
+                }
+        */
+
+
         public static void StageClear()
         {
             Instance.Store();
@@ -18,41 +81,18 @@ namespace Game.Stage
         {
             SceneTransitionManager.GotoScene(Instance.stageData.StageScene, 0.2f, 0.15f);
         }
-        public static void PlayerDeath(DeathType deathType)
-        {
-            Instance.DeathCountUp(deathType);
-            Instance.Invoke("RebornPlayer", 1f);
-        }
+
         public static void ReturnToSelectScene()
         {
             GameManager.MoveQueuedScene();
         }
-        public static DeathCounts MyDeathCounts
-            => Instance.deathCounts;
-        public static CoinScore MyCoinScore
-            => Instance.coinScore;
-        public StageData StageData
-            => this.stageData;
-        public WorldData WorldData
-            => this.worldData;
 
 
-        private CoinScore coinScore;
-        private DeathCounts deathCounts;
-        private int StageID
-            => this.StageData.StageId;
-
-        [SerializeField]
-        private SceneObject returnToScene;
-        [SerializeField]
-        private StageData stageData;
-        [SerializeField]
-        private WorldData worldData;
-
-
-        
         protected override void Init()
         {
+            this.playerDeathManager = this.GetComponent<PlayerDeathManager>();
+            this.coinScoreManager = this.GetComponent<CoinScoreManager>();
+
             if (GameManager.NowStageInformation == null)
             {
                 var index = this.worldData.GetStageIndex(this.stageData.StageId);
@@ -84,23 +124,17 @@ namespace Game.Stage
         /// </summary>
         private void Reset()
         {
-            this.deathCounts = new DeathCounts(this.StageID);
-            this.coinScore = new CoinScore(this.StageID);
+            this.coinScoreManager.Init(this.StageID);
+            this.playerDeathManager.Init(this.StageID);
 
+            /*
             var a = FindObjectOfType<PlayerStartPoint>();
             var player = this.CreatePlayer(a.playerType, a.transform.position);
+            
             a.OnPlayerTouched(player);
-        }
+            */
 
-
-        /// <summary>
-        /// 対応する死亡タイプのデス数をカウントアップする
-        /// </summary>
-        /// <param name="deathType"></param>
-        private void DeathCountUp(DeathType deathType)
-        {
-            Instance.deathCounts.CountUp(deathType);
-            GameEventManager.DeathCountChangedEvent.Raise();
+            this.playerDeathManager.StartPlayer();
         }
 
 
@@ -110,9 +144,9 @@ namespace Game.Stage
         private void Store()
         {
             var save = GameManager.StageSaveData.Get(this.StageID);
-            save.SaveWithCleared(this.deathCounts, this.coinScore);
+            save.SaveWithCleared(this.myDeathCounts, this.myCoinScore);
         }
-        
+/*        
         /// <summary>
         /// プレイヤーの最後に到達したチェックポイントへプレイヤーを生成する
         /// </summary>
@@ -151,6 +185,8 @@ namespace Game.Stage
 
             return latestCheckPoint;
         }
+
+    */
     }
 
 

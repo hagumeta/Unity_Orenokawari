@@ -2,34 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Game.Stage.Manager;
+using Game.Stage.Event;
 
 namespace Game.Stage.Displayer
 {
-    public class CoinCountDisplayer : CoinCountChangedEventListener
+    //    public class CoinCountDisplayer : CoinCountChangedEventListener
+    public class CoinCountDisplayer : CountDisplayer, ICoinGetEventListener
     {
-        [SerializeField]
-        private TextMeshProUGUI _text;
-        private string _count;
-
-        private string coinCount
+        public override void UpdateCountText()
         {
-            set
-            {
-                if (this._count != value && this._text != null)
-                {
-                    this._text.text = value.ToString();
-                }
-            }
+            this.text.text = StageManager.MyCoinScore.CoinStatus;
         }
 
-        public override void OnCoinCountChanged()
+        public void OnEventRaised(int coinNum)
         {
-            this.coinCount = StageManager.MyCoinScore.CoinStatus;
+            this.UpdateCountText(Time.deltaTime);
         }
 
-        private void Start()
+        public void OnEventRaised()
         {
-            this.OnCoinCountChanged();
+            this.UpdateCountText(Time.deltaTime);
         }
+
     }
 }

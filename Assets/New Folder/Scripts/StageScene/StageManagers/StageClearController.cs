@@ -5,6 +5,7 @@ using TMPro;
 using DG.Tweening;
 using InputUtil;
 using Extends.UI;
+using Game.Stage.Manager;
 
 namespace Game.Stage {
     public class StageClearController : SingletonMonoBehaviourFast<StageClearController>

@@ -9760,7 +9760,7 @@ MonoBehaviour:
   RunEffect: {fileID: 6915220615718405379}
   LandEffect: {fileID: 6914804647704645667}
   WallCatchEffect: {fileID: 0}
-  IsFrozen: 0
+  isFrozen: 0
   Operation:
     Horizontal:
       ButtonName: Horizontal
@@ -9781,3 +9781,4 @@ MonoBehaviour:
     m_Bits: 1024
   deathEffectObject: {fileID: 0}
   _myPlayerType: 0
+  playerDeathEvent: {fileID: 11400000, guid: 04e376eb2cce1d244a27721c015d2c35, type: 2}

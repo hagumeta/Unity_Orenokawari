@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using Game.Stage;
 using Game;
+using Game.Stage.Manager;
+using Game.Stage.Event;
 
 namespace Game.Stage
 {
     public class Stickman_PlayerOperationablePlatformActor : PlayerOperationablePlatformActor, IPlayer
     {
-        [SerializeField]
-        private PlayerType _myPlayerType;
+        [SerializeField] private PlayerType _myPlayerType;
+        [SerializeField] private PlayerDeathEvent playerDeathEvent;
+
         public PlayerType playerType
-        {
-            get => this._myPlayerType;
-        }
+            => this._myPlayerType;
         public Player player { get; private set; }
         private CameraController cameraController;
         private bool isCleared = false;
@@ -109,7 +110,8 @@ namespace Game.Stage
             this.IsFrozen = true;
             if (!this.isCleared)
             {
-                StageManager.PlayerDeath(deathType);
+                //                                              StageManager.PlayerDeath(deathType);
+                this.playerDeathEvent.Raise(deathType);
             }
             this.CreateCorpse(deathType);
             this.cameraController.UnFocus();

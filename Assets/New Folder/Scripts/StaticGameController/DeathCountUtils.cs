@@ -38,6 +38,8 @@ namespace Game
     }
 
 
+
+
     public class CoinScore
     {
         public bool IsGettedMedal { get; private set; }
@@ -51,15 +53,15 @@ namespace Game
             this.CoinCount = 0;
         }
 
-        public void GetCoin()
+        public void GetCoin(int num = 1)
         {
-            this.CoinCount++;
-            GameEventManager.CoinCountChangedEvent.Raise();
+            this.CoinCount += num;
+//            GameEventManager.GetCoinEvent.Raise(num);
         }
         public void GetMedal()
         {
             this.IsGettedMedal = true;
-            GameEventManager.CoinCountChangedEvent.Raise();
+//            GameEventManager.GetCoinEvent.Raise();
         }
 
         public string CoinStatus

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Stage.Manager;
+using Game.Stage.Event;
 
 
 namespace Game.Stage.Gimicks
@@ -9,7 +11,8 @@ namespace Game.Stage.Gimicks
     {
         protected override void GetCoin()
         {
-            StageManager.MyCoinScore.GetMedal();
+            this.coinGetEvent.Raise();
+            //StageManager.MyCoinScore.GetMedal();
         }
     }
 }

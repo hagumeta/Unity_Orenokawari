@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using InputUtil;
+using Game.Stage.Manager;
+
 
 namespace Game.Stage
 {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Game;
 
-
+/*
 namespace Game.Stage
 {
     public abstract class DeathCountChangedEventListener : GameEventListener
@@ -35,4 +35,4 @@ namespace Game.Stage
         public abstract void OnCoinCountChanged();
     }
 
-}
+}*/

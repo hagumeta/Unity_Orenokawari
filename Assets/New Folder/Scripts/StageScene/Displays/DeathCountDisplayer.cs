@@ -3,29 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Game;
+using Game.Stage.Manager;
+using Game.Stage.Event;
+using System.Linq;
 
 namespace Game.Stage.Displayer
 {
-    public class DeathCountDisplayer : DeathCountChangedEventListener
+    //public class DeathCountDisplayer : DeathCountChangedEventListener
+    public class DeathCountDisplayer : CountDisplayer, IPlayerDeathEventListener
     {
-        [SerializeField]
-        private TextMeshProUGUI _text;
-        private int _count;
-
-        private int deathCount
+        public void OnEventRaised(DeathType deathType)
         {
-                set
-            {
-                if (this._count != value && this._text != null)
-                {
-                    this._text.text = value.ToString();
-                }
-            }
+            this.UpdateCountText(Time.deltaTime);
         }
 
-        public override void OnDeathCountChanged()
+        public void OnEventRaised()
         {
-            this.deathCount = StageManager.MyDeathCounts.SumCount;
+            this.UpdateCountText(Time.deltaTime);
+        }
+
+        public override void UpdateCountText()
+        {
+            this.Count = StageManager.MyDeathCounts.SumCount;
         }
     }
 }
