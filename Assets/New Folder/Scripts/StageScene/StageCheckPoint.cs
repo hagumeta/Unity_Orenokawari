@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Game.Stage.Actor;
 
-namespace Game.Stage.Objects
+namespace Game.Stage
 {
     public class StageCheckPoint : MonoBehaviour
     {

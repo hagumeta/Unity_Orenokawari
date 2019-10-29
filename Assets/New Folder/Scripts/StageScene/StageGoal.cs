@@ -1,15 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Game.Stage.Actor;
 
-namespace Game.Stage.Objects
+namespace Game.Stage
 {
     public class StageGoal : MonoBehaviour
     {
 
         [SerializeField] private GameObject clearEffectObject;
         [SerializeField] private GameObject unEnabledObject;
+
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
