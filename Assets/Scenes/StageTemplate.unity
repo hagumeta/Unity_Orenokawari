@@ -2076,8 +2076,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4294956032
+  m_fontColor: {r: 0, g: 0.8339977, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2563,6 +2563,7 @@ GameObject:
   - component: {fileID: 1984996803}
   - component: {fileID: 1984996805}
   - component: {fileID: 1984996804}
+  - component: {fileID: 1984996806}
   m_Layer: 0
   m_Name: StageController
   m_TagString: Untagged
@@ -2637,6 +2638,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8200e1244eff31247a120d287fcf2825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerRebornTime: 1
+--- !u!114 &1984996806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984996800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b4057a9d379864ebdefa1b0979219e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2004460130
 GameObject:
   m_ObjectHideFlags: 0
@@ -2672,7 +2686,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 252.13281, y: 0}
+  m_AnchoredPosition: {x: 257.1605, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2004460132

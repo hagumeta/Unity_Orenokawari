@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Game.Stage.Gimicks;
+using Game.Stage.Objects;
 using UnityEditor;
 using System.Linq;
+using Game.Stage.Objects.Items;
 
 public class Test_CountCoins : MonoBehaviour
 {
