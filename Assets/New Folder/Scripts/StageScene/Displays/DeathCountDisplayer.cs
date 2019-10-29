@@ -4,12 +4,11 @@ using UnityEngine;
 using TMPro;
 using Game;
 using Game.Stage.Manager;
-using Game.Stage.Event;
+using Game.Stage.GameEvents;
 using System.Linq;
 
 namespace Game.Stage.Displayer
 {
-    //public class DeathCountDisplayer : DeathCountChangedEventListener
     public class DeathCountDisplayer : CountDisplayer, IPlayerDeathEventListener
     {
         public void OnEventRaised(DeathType deathType)

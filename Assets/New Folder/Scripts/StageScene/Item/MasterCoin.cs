@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Stage.Manager;
-using Game.Stage.Event;
+using Game.Stage.GameEvents;
 
 
-namespace Game.Stage.Gimicks
+namespace Game.Stage.Objects.Items
 {
     public class MasterCoin : Coin
     {
         protected override void GetCoin()
         {
             this.coinGetEvent.Raise();
-            //StageManager.MyCoinScore.GetMedal();
         }
     }
 }

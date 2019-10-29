@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-
-
 namespace Game.Stage.Displayer
 {
     public interface ICountDisplayer

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Stage.Manager;
-using Game.Stage.Event;
+using Game.Stage.GameEvents;
 
-namespace Game.Stage.Gimicks
+namespace Game.Stage.Objects.Items
 {
     public class Coin : Item
     {
@@ -30,7 +30,6 @@ namespace Game.Stage.Gimicks
         protected virtual void GetCoin()
         {
             this.coinGetEvent.Raise(1);
-//            StageManager.MyCoinScore.GetCoin();
         }
     }
 }

@@ -4,20 +4,20 @@ using UnityEngine;
 using Game.Stage;
 using Game;
 using Game.Stage.Manager;
-using Game.Stage.Event;
+using Game.Stage.GameEvents;
 
-namespace Game.Stage
+namespace Game.Stage.Actor
 {
     public class Stickman_PlayerOperationablePlatformActor : PlayerOperationablePlatformActor, IPlayer
     {
         [SerializeField] private PlayerType _myPlayerType;
         [SerializeField] private PlayerDeathEvent playerDeathEvent;
+        [SerializeField] private StageClearEvent stageClearEvent;
 
         public PlayerType playerType
             => this._myPlayerType;
         public Player player { get; private set; }
         private CameraController cameraController;
-        private bool isCleared = false;
         private bool isMuteki = false;
         private SpriteRenderer sprite;
 
@@ -36,6 +36,7 @@ namespace Game.Stage
             this.sprite.color = Color.gray;
             Invoke("NotMuteki", 0.25f);
         }
+
         private void NotMuteki()
         {
             this.isMuteki = false;
@@ -45,23 +46,11 @@ namespace Game.Stage
             a.enabled = true;
         }
 
-
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-             this.OnCollisionToOther(collision.gameObject);
-        }
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-             if (collision.isTrigger) {
-                this.OnCollisionToOther(collision.gameObject);
-             }
-        }
-
         /// <summary>
         /// isTrigger問わず相手と衝突した場合にコール
         /// </summary>
         /// <param name="collision"></param>
-        private void OnCollisionToOther(GameObject other)
+        protected override void OnCollisionToOther(GameObject other)
         {
             if (!this.IsFrozen) {
                 if (!this.isMuteki) {
@@ -108,11 +97,7 @@ namespace Game.Stage
         public void Death(DeathType deathType)
         {
             this.IsFrozen = true;
-            if (!this.isCleared)
-            {
-                //                                              StageManager.PlayerDeath(deathType);
-                this.playerDeathEvent.Raise(deathType);
-            }
+            this.playerDeathEvent.Raise(deathType);
             this.CreateCorpse(deathType);
             this.cameraController.UnFocus();
             Destroy(this.gameObject);
@@ -129,12 +114,14 @@ namespace Game.Stage
 
         public void StageCleard()
         {
-            if (!this.isCleared) {
-                StartCoroutine(this.CleardAction());
-                StageManager.StageClear();
-            }
+            this.stageClearEvent.Raise(this as IPlayer);
         }
 
+
+        public void DoStageClearedAction()
+        {
+            StartCoroutine(this.CleardAction());
+        }
 
         /// <summary>
         /// クリア時のアクション
@@ -143,7 +130,6 @@ namespace Game.Stage
         /// <returns></returns>
         private IEnumerator CleardAction()
         {
-            this.isCleared = true;
             this.Operation.Lock();
             this.cameraController.Move_lock = false;
             this.cameraController.FocusOnObject(this.transform, 3, Vector2.zero);
@@ -157,9 +143,6 @@ namespace Game.Stage
             //ジャンプのつもり
             this.VerticalSpeed += this.ActionStatus.JumpSpeed * 1.5f;
 
-            StageClearController.Create();
-
-
             while (!this.CurrentState.IsLanding)
             {
                 yield return new WaitForSeconds(Time.deltaTime);
@@ -172,5 +155,7 @@ namespace Game.Stage
 
             this.Animator.SetTrigger("ClearAction");
         }
+
+
     }
 }

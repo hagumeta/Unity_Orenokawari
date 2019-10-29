@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Game.Stage.Event;
+using Game.Stage.GameEvents;
 using System.Linq;
 
 namespace Game.Stage.Manager
@@ -12,11 +12,18 @@ namespace Game.Stage.Manager
 
         public DeathCounts DeathCounts { get; private set; }
 
+        /// <summary>
+        /// 初期化
+        /// </summary>
+        /// <param name="stageID"></param>
         public void Init(int stageID)
         {
             this.DeathCounts = new DeathCounts(stageID);
         }
 
+        /// <summary>
+        /// PlayerDeathEventコール時の処理
+        /// </summary>
         public void OnEventRaised() { }
         public void OnEventRaised(DeathType deathType)
         {
@@ -33,6 +40,8 @@ namespace Game.Stage.Manager
             var player = this.CreatePlayer(a.playerType, a.transform.position);
             a.OnPlayerTouched(player);
         }
+
+
 
         /// <summary>
         /// プレイヤーの最後に到達したチェックポイントへプレイヤーを生成する
@@ -54,11 +63,17 @@ namespace Game.Stage.Manager
             obj.transform.position = position;
             return obj.transform;
         }
+
+        /// <summary>
+        /// プレイヤーを生成する
+        /// </summary>
+        /// <param name="playerType"></param>
+        /// <param name="position"></param>
+        /// <returns></returns>
         private Transform CreatePlayer(PlayerType playerType, Vector3 position)
         {
             return this.CreatePlayer(GameManager.PlayerCollection.GetPlayer(playerType), position);
         }
-
 
         /// <summary>
         /// プレイヤーが最後に通ったチェックポイントを探して取得する

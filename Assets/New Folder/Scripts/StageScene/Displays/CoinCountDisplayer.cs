@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Game.Stage.Manager;
-using Game.Stage.Event;
+using Game.Stage.GameEvents;
 
 namespace Game.Stage.Displayer
 {

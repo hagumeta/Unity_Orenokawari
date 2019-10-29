@@ -9782,3 +9782,4 @@ MonoBehaviour:
   deathEffectObject: {fileID: 0}
   _myPlayerType: 0
   playerDeathEvent: {fileID: 11400000, guid: 04e376eb2cce1d244a27721c015d2c35, type: 2}
+  stageClearEvent: {fileID: 11400000, guid: 602e812197ee6ec4eb15707932581872, type: 2}

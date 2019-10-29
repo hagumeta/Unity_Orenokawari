@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ab23ef252fa81e428be54cb2d0c1668, type: 3}
+  m_Script: {fileID: 11500000, guid: 16da8b9cef32f144981cdfb51a5a3abf, type: 3}
   m_Name: GetCoinEvent
   m_EditorClassIdentifier: 
