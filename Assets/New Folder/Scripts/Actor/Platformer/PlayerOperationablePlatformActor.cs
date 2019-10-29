@@ -6,26 +6,33 @@ using UnityEngine;
 /// <summary>
 /// プレイヤークラス
 /// OperatuinablePlatformActorを継承
-/// Killerタグのオブジェクトと衝突した際に死亡する処理を追加実装している．
+/// Playerに必要な挙動と操作性向上の追実装をしている．
 /// </summary>
 public class PlayerOperationablePlatformActor : OperationablePlatformActor, IPlayer {
 
-    protected override void Start()
-    {
-        base.Start();
-    }
+    [SerializeField] private GameObject deathEffectObject;
+    public GameObject DeathEffectObject
+        => this.deathEffectObject;
 
-    //シリアライズ：死亡時に発生させるオブジェクト
-    [SerializeField]
-    private GameObject deathEffectObject;
-    public GameObject DeathEffectObject{
-        get => this.deathEffectObject;
-        set => this.deathEffectObject = value;
-    }
-
-    //このオブジェクトが死んでいるかどうか判定
     public bool IsDeath { get; set; }
 
+    /// <summary>
+    /// isTrigger問わず相手と衝突した時にコール
+    /// </summary>
+    /// <param name="collision"></param>
+    protected virtual void OnCollisionToOther(GameObject other)
+    {
+    }
+
+    /// <summary>
+    /// プレイヤーの死亡
+    /// </summary>
+    public virtual void Death()
+    {
+        this.IsDeath = true;
+        Instantiate(this.DeathEffectObject, this.gameObject.transform.position, Quaternion.identity);
+        GameObject.Destroy(this.gameObject, Time.deltaTime);
+    }
 
     protected override void Update()
     {
@@ -42,39 +49,21 @@ public class PlayerOperationablePlatformActor : OperationablePlatformActor, IPla
         }
     }
 
-
-    /// <summary>
-    /// Killerタグと当たったら死
-    /// </summary>
-    /// <param name="collision"></param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "PlayerKiller")
-        {
-            if (!this.IsDeath)
-            {
-                this.Death();
-            }
-        }
+        this.OnCollisionToOther(collision.gameObject);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "PlayerKiller")
+        if (collision.isTrigger)
         {
-            if (!this.IsDeath)
-            {
-                this.Death();
-            }
+            this.OnCollisionToOther(collision.gameObject);
         }
     }
 
-    /// <summary>
-    /// プレイヤーの死亡
-    /// </summary>
-    public virtual void Death()
+
+    protected override void Start()
     {
-        this.IsDeath = true;
-        Instantiate(this.DeathEffectObject, this.gameObject.transform.position, Quaternion.identity);
-        GameObject.Destroy(this.gameObject, Time.deltaTime);
+        base.Start();
     }
 }

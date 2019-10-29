@@ -9,12 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfc63b97007bfa748ac6d6f3726fdd55, type: 3}
-  m_Name: "stage_\u5E73\u5766\u306A\u9053"
+  m_Script: {fileID: 11500000, guid: 706ac5b76970e084abf08a9395857cb4, type: 3}
+  m_Name: StageClearEvent
   m_EditorClassIdentifier: 
-  StageScene:
-    m_SceneName: Stage_1
-    m_path: 
-  StageName: "\u5E73\u5766\u306A\u9053"
-  MaxCoinAmount: 20
-  HeiwaDeathBorder: 1

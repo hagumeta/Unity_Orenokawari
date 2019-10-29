@@ -12,7 +12,7 @@ public interface IPlayer{
     /// <summary>
     /// 死亡時に生成するエフェクトオブジェクト
     /// </summary>
-    GameObject DeathEffectObject { get; set; }
+    GameObject DeathEffectObject { get;}
 
     /// <summary>
     /// 自身は死んでいるかどうか
