@@ -1,13 +1,11 @@
 ﻿using System.Collections; 
-using System.Collections.Generic;
 using UnityEngine;
-using Game.Stage;
-using Game;
-using Game.Stage.Manager;
 using Game.Stage.GameEvents;
+using Extends.CameraControlls;
 
 namespace Game.Stage.Actor
 {
+    [RequireComponent(typeof(CameraFocusThis))]
     public class Stickman_PlayerOperationablePlatformActor : PlayerOperationablePlatformActor, IPlayer
     {
         [SerializeField] private PlayerType _myPlayerType;
@@ -17,7 +15,6 @@ namespace Game.Stage.Actor
         public PlayerType playerType
             => this._myPlayerType;
         public Player player { get; private set; }
-        private CameraController cameraController;
         private bool isMuteki = false;
         private SpriteRenderer sprite;
 
@@ -26,12 +23,6 @@ namespace Game.Stage.Actor
             base.Start();
             this.player = GameManager.PlayerCollection.GetPlayer(this.playerType);
             this.sprite = this.GetComponent<SpriteRenderer>();
-
-            try {
-                this.cameraController = Camera.main.GetComponent<CameraController>();
-                this.cameraController.FocusOnObject(this.transform);
-            } catch { Debug.Log("Main cameraにcameraControllerつけ忘れてるよ"); }
-
             this.isMuteki = true;
             this.sprite.color = Color.gray;
             Invoke("NotMuteki", 0.25f);
@@ -99,7 +90,6 @@ namespace Game.Stage.Actor
             this.IsFrozen = true;
             this.playerDeathEvent.Raise(deathType);
             this.CreateCorpse(deathType);
-            this.cameraController.UnFocus();
             Destroy(this.gameObject);
         }
 
@@ -131,8 +121,13 @@ namespace Game.Stage.Actor
         private IEnumerator CleardAction()
         {
             this.Operation.Lock();
-            this.cameraController.Move_lock = false;
-            this.cameraController.FocusOnObject(this.transform, 3, Vector2.zero);
+
+            var cam = this.GetComponent<CameraFocusThis>();
+            if (cam != null && cam.cameraController != null)
+            {
+                cam.cameraController.MoveLock = false;
+                cam.cameraController.FocusOnObject(this.transform, 3, Vector2.zero);
+            }
 
             yield return new WaitForSeconds(0.3f);
             while (!this.CurrentState.IsLanding)

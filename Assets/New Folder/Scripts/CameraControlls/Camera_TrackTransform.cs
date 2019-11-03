@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-namespace CameraControll
+namespace Extends.CameraControlls
 {
     /// <summary>
     /// Camera専用コンポーネント

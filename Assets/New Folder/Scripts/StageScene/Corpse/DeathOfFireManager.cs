@@ -6,7 +6,7 @@ using DG.Tweening;
 
 namespace Game.Stage.Corpse
 {
-    public class DeathOfFireManager : DeathCorpseManager
+    public class DeathOfFireManager : Corpse
     {
         [SerializeField] Transform FireTransform;
         [SerializeField] Transform StickmanTransform;

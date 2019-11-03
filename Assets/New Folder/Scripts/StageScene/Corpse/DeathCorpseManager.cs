@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 namespace Game.Stage.Corpse
 {
+
+
     [RequireComponent(typeof(AudioSource))]
-    public class DeathCorpseManager : MonoBehaviour
+    public class Corpse : MonoBehaviour
     {
         private AudioSource _audioSource;
         private AudioSource audioSource
@@ -37,4 +37,6 @@ namespace Game.Stage.Corpse
             obj.transform.localScale = this.transform.localScale;
         }
     }
+
+
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Stage.Corpse
 {
-    public class DeathOfNeedleManager : DeathCorpseManager
+    public class DeathOfNeedleManager : Corpse
     {
         [SerializeField] private GameObject[] CorpsePatturns;
         protected void Start()

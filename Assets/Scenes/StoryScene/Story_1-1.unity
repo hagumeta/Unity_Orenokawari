@@ -448,6 +448,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6095942243717321701, guid: 64827ea2bf829b74fb4551a3eade96ad,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64827ea2bf829b74fb4551a3eade96ad, type: 3}
 --- !u!1 &1000298461
@@ -476,7 +481,6 @@ GameObject:
   - component: {fileID: 1000298476}
   - component: {fileID: 1000298475}
   - component: {fileID: 1000298474}
-  - component: {fileID: 1000298473}
   - component: {fileID: 1000298472}
   - component: {fileID: 1000298488}
   - component: {fileID: 1000298487}
@@ -485,12 +489,19 @@ GameObject:
   - component: {fileID: 1000298486}
   - component: {fileID: 1000298485}
   - component: {fileID: 1000298484}
-  - component: {fileID: 1000298492}
   - component: {fileID: 1000298493}
   - component: {fileID: 1000298494}
   - component: {fileID: 1000298496}
   - component: {fileID: 1000298495}
   - component: {fileID: 1000298466}
+  - component: {fileID: 1000298489}
+  - component: {fileID: 1000298471}
+  - component: {fileID: 1000298492}
+  - component: {fileID: 1000298497}
+  - component: {fileID: 1000298473}
+  - component: {fileID: 1000298500}
+  - component: {fileID: 1000298499}
+  - component: {fileID: 1000298498}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -522,7 +533,8 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
+  selectedBlocks:
+  - {fileID: 1000298474}
   selectedCommands: []
   variables: []
   description: 
@@ -576,6 +588,7 @@ MonoBehaviour:
   - {fileID: 1000298476}
   - {fileID: 1000298475}
   - {fileID: 1000298492}
+  - {fileID: 1000298489}
 --- !u!114 &1000298464
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -617,7 +630,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 3
   indentLevel: 0
-  storyText: "\u3088\u304A\uFF0C\u4FFA\u306F\u30AA\u30EC\u3060\uFF0E"
+  storyText: "\u3088\u304A\uFF0C\u30AA\u30EC\u3060\uFF0E"
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -711,6 +724,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 1000298468}
   commandList:
+  - {fileID: 1000298471}
   - {fileID: 1000298467}
 --- !u!4 &1000298470
 Transform:
@@ -726,6 +740,61 @@ Transform:
   m_Father: {fileID: 1251280000}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1000298471
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000298461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95d9ff288f3904c05ada7ac9c9a075bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 36
+  indentLevel: 0
+  description: 
+  delay: 0
+  invokeType: 1
+  staticEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  booleanParameter:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  booleanEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2105564152}
+        m_MethodName: set_IsFrozen
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  integerParameter:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  integerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  floatParameter:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  floatEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  stringParameter:
+    stringRef: {fileID: 0}
+    stringVal: 
+  stringEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1000298472
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -758,20 +827,19 @@ MonoBehaviour:
   - {fileID: 1000298484}
 --- !u!114 &1000298473
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000298461}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c23faba06619da442a984c0c71a87df4, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a37e704ff08507499fb2e56e2a8ff58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentBlock: {fileID: 1000298474}
-  tagFilter:
-  - Player_Killer
-  FireOn: 1
+  flowchart: {fileID: 1000298462}
+  message: PlayerDeath
+  useDeathTypeAsMessage: 0
 --- !u!114 &1000298474
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -795,11 +863,13 @@ MonoBehaviour:
   itemId: 16
   blockName: Player Death
   description: 
-  eventHandler: {fileID: 1000298473}
+  eventHandler: {fileID: 1000298497}
   commandList:
-  - {fileID: 1000298466}
   - {fileID: 1000298495}
   - {fileID: 1000298496}
+  - {fileID: 1000298499}
+  - {fileID: 1000298498}
+  - {fileID: 1000298466}
 --- !u!114 &1000298475
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -896,7 +966,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 12
   indentLevel: 0
-  storyText: "{size=80}\u30B3\u30F3\u30D3\u30CB\u307E\u3067\u4FFA\u3092\u9023\u308C\u3066\u884C\u3063\u3066\u307B\u3057\u3044\u3093\u3060\uFF01\uFF01{/size}"
+  storyText: "{size=75}\u30B3\u30F3\u30D3\u30CB\u307E\u3067\u4FFA\u3092\u9023\u308C\u3066\u884C\u3063\u3066\u307B\u3057\u3044\u3093\u3060\uFF01\uFF01{/size}"
   description: 
   character: {fileID: 794432484}
   portrait: {fileID: 0}
@@ -1006,7 +1076,7 @@ MonoBehaviour:
   indentLevel: 0
   storyText: "\u305D\u308C\u3067\u306F\u6539\u3081\u3066\u3002"
   description: 
-  character: {fileID: 794432484}
+  character: {fileID: 0}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 8300000, guid: 106d19c0fcbb8e641a16fb35022c109b, type: 3}
   showAlways: 1
@@ -1033,7 +1103,7 @@ MonoBehaviour:
   indentLevel: 0
   storyText: "\u3042\u3042\u3001\u3059\u307E\u306A\u3044\u3001\n\u8FD1\u304F\u306B\u5BC4\u308A\u3059\u304E\u3066\u3044\u305F\u307F\u305F\u3044\u3060\u3002"
   description: 
-  character: {fileID: 794432484}
+  character: {fileID: 0}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 8300000, guid: 106d19c0fcbb8e641a16fb35022c109b, type: 3}
   showAlways: 1
@@ -1180,6 +1250,61 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &1000298489
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000298461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95d9ff288f3904c05ada7ac9c9a075bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 35
+  indentLevel: 0
+  description: 
+  delay: 0
+  invokeType: 1
+  staticEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  booleanParameter:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  booleanEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2105564152}
+        m_MethodName: set_IsFrozen
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  integerParameter:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  integerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  floatParameter:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  floatEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  stringParameter:
+    stringRef: {fileID: 0}
+    stringVal: 
+  stringEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1000298490
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1234,14 +1359,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000298461}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17a200dbd67304446a3019434503338a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 29
+  itemId: 37
   indentLevel: 0
-  targetObject: {fileID: 2105564151}
-  methodName: UnFrozen
-  delay: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 0.2
+  durationOLD: 0
 --- !u!114 &1000298493
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1329,8 +1455,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 33
   indentLevel: 0
-  duration: 1
-  amount: {x: 3, y: 3}
+  duration: 0.7
+  amount: {x: 2, y: 2}
   waitUntilFinished: 0
 --- !u!114 &1000298496
 MonoBehaviour:
@@ -1346,9 +1472,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 32
   indentLevel: 0
-  storyText: "\u30B0\u30CF\u30C3!!!!!!!!!!!!!!!!!!!!!"
+  storyText: "{s=114514}\u30B0\u30CF\u30C3!!!!!!!!!!!!!!!!!!!!!"
   description: 
-  character: {fileID: 0}
+  character: {fileID: 794432484}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -1359,6 +1485,105 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &1000298497
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000298461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 1000298474}
+  message: PlayerDeath
+--- !u!114 &1000298498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000298461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 39
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 4
+  durationOLD: 0
+--- !u!114 &1000298499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000298461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95d9ff288f3904c05ada7ac9c9a075bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 38
+  indentLevel: 0
+  description: 
+  delay: 0
+  invokeType: 0
+  staticEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1000298500}
+        m_MethodName: FocusOnCamera
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  booleanParameter:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  booleanEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  integerParameter:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  integerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  floatParameter:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  floatEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  stringParameter:
+    stringRef: {fileID: 0}
+    stringVal: 
+  stringEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1000298500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000298461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130328c77596ce54aad7593332cfc4cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1251279999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1507,7 +1732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee0a505a078c3b945876ef958dbca4d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move_lock: 0
+  moveLock: 0
 --- !u!114 &1749417941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1520,7 +1745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c09acc0b069e72a4aa5f02d810a98932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrackingTargetObjectTransform: {fileID: 2105564157}
+  TrackingTargetObjectTransform: {fileID: 0}
   TrackingCenterScreenPosition: {x: 0, y: 0}
   TrackingSpeed: 0
   IsTrackingSmooth: 1
@@ -1583,18 +1808,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2105564151 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6715952834965198071, guid: 64827ea2bf829b74fb4551a3eade96ad,
+--- !u!114 &2105564152 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6717024689333606955, guid: 64827ea2bf829b74fb4551a3eade96ad,
     type: 3}
   m_PrefabInstance: {fileID: 954483736}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2105564157 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6717245298448267895, guid: 64827ea2bf829b74fb4551a3eade96ad,
-    type: 3}
-  m_PrefabInstance: {fileID: 954483736}
-  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72999edf855dd1040acf78c77e9ba99e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2139131720
 GameObject:
   m_ObjectHideFlags: 0
@@ -2317,6 +2542,11 @@ PrefabInstance:
       propertyPath: setSayDialog
       value: 
       objectReference: {fileID: 1354222815}
+    - target: {fileID: 8751697983966158468, guid: f5954eb9ca8ddf7438a12cafb1699ff8,
+        type: 3}
+      propertyPath: nameColor.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8751697983966158469, guid: f5954eb9ca8ddf7438a12cafb1699ff8,
         type: 3}
       propertyPath: m_LocalPosition.x
