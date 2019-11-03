@@ -11,12 +11,8 @@ namespace Game.Stage.Corpse
         [SerializeField] Transform FireTransform;
         [SerializeField] Transform StickmanTransform;
 
-        protected void Start()
-        {
-            StartCoroutine(this.IEBurning());
-        }
-        
-        private IEnumerator IEBurning()
+
+        protected override IEnumerator CorpseCoroutine()
         {
             var collider = this.StickmanTransform.GetComponent<Collider2D>();
             var anim = this.StickmanTransform.GetComponent<Animator>();
