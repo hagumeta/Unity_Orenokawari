@@ -90,6 +90,10 @@ namespace Game
         {
             SceneTransitionManager.GotoScene(Instance.gameScenes.TitleScene);
         }
+        public static void MoveScene(SceneObject scene)
+        {
+            SceneTransitionManager.GotoScene(scene);
+        }
         public static void MoveStageSelectScene()
         {
             SceneTransitionManager.GotoScene(Instance.gameScenes.StageSelectScene);

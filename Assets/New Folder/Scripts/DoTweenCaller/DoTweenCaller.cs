@@ -7,26 +7,27 @@ using DG.Tweening;
     using UnityEditor;
 #endif
 
-
-public class DoTweenCaller : MonoBehaviour
+namespace Extends.DoTweenSupporter
 {
-    public Vector2 MoveTo;
-    public float MoveTime;
-    public Ease EaseType;
-    public bool LocalMove;
-
-    void OnEnable()
+    public class DoTweenCaller : MonoBehaviour
     {
-        if (this.LocalMove)
+        public Vector2 MoveTo;
+        public float MoveTime;
+        public Ease EaseType;
+        public bool LocalMove;
+
+        void OnEnable()
         {
-            this.transform.DOLocalMove(this.MoveTo, this.MoveTime).SetEase(this.EaseType);
-        }
-        else
-        {
-            this.transform.DOMove(this.MoveTo, this.MoveTime).SetEase(this.EaseType);
+            if (this.LocalMove)
+            {
+                this.transform.DOLocalMove(this.MoveTo, this.MoveTime).SetEase(this.EaseType);
+            }
+            else
+            {
+                this.transform.DOMove(this.MoveTo, this.MoveTime).SetEase(this.EaseType);
+            }
         }
     }
-}
 
 
 #if UNITY_EDITOR
@@ -41,7 +42,7 @@ public class DoTweenCaller : MonoBehaviour
             this._easeType = this.serializedObject.FindProperty("EaseType");
             this._moveTime = this.serializedObject.FindProperty("MoveTime");
             this._isLocal = this.serializedObject.FindProperty("LocalMove");
-    }
+        }
 
         public override void OnInspectorGUI()
         {
@@ -58,3 +59,4 @@ public class DoTweenCaller : MonoBehaviour
         }
     }
 #endif
+}
