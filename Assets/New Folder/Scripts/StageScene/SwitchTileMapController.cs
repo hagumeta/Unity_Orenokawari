@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using Game.Stage.Gimicks;
+using Game.Stage.Objects;
 
-namespace Game.Stage.Gimicks
+namespace Game.Stage.Objects
 {
     public class SwitchTileMapController : MonoBehaviour
     {

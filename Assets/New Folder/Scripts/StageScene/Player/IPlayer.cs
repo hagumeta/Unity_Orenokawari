@@ -9,6 +9,7 @@ namespace Game.Stage
         void Death(DeathType deathType);
         void OnReborn();
         void CreateCorpse(DeathType deathType);
+        void DoStageClearedAction();
         PlayerType playerType { get; }
     }
 }

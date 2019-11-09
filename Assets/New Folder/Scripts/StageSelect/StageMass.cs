@@ -4,6 +4,7 @@ using Data.Stage;
 using InputUtil;
 using TMPro;
 using System.Linq;
+using Extends.Cursor;
 
 namespace Game.StageSelect
 {
@@ -52,7 +53,7 @@ namespace Game.StageSelect
             {
                 if (ButtonOperation.Submit.IsPressed)
                 {
-                    foreach (var a in (Cursor[])GameObject.FindObjectsOfType(typeof(Cursor)))
+                    foreach (var a in (Extends.Cursor.Cursor[])GameObject.FindObjectsOfType(typeof(Extends.Cursor.Cursor)))
                     {
                         a.isActivate = false;
                     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Game.Stage.Gimicks
+namespace Game.Stage.Objects
 {
     public class StageGimick_ButtonSwitch : MonoBehaviour
     {

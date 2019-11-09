@@ -5,6 +5,7 @@ using Data.Stage;
 using UnityEngine.SceneManagement;
 using Game.Sounds;
 using System.Linq;
+using Extends.Cursor;
 
 namespace Game.StageSelect{
     public class StageSelectController : MonoBehaviour, ISelectController

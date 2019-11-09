@@ -4,13 +4,22 @@ using UnityEngine;
 
 namespace Game.Stage.Corpse
 {
-    public class DeathOfNeedleManager : DeathCorpseManager
+    public class DeathOfNeedleManager : Corpse
     {
-        [SerializeField] private GameObject[] CorpsePatturns;
-        protected void Start()
+        [SerializeField] private GameObject[] corpsePatturns;
+        [SerializeField] private Transform boodEmitter;
+
+        protected override IEnumerator CorpseCoroutine()
         {
-            int index = Mathf.FloorToInt(Random.Range(0, this.CorpsePatturns.Length));
-            Instantiate(this.CorpsePatturns[index], this.transform);
+            this.boodEmitter.gameObject.SetActive(true);
+
+            int index = Mathf.FloorToInt(Random.Range(0, this.corpsePatturns.Length));
+            Instantiate(this.corpsePatturns[index], this.transform);
+
+            yield return new WaitForSeconds(1f);
+            if (!this.IgnoreNamusan) {
+                this.Namusan();
+            }
         }
     }
 }

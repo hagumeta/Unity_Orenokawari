@@ -27,69 +27,71 @@ public class OperationablePlatformActor : PlatformActor {
     /// </summary>
     protected override void Update ()
     {
-        base.Update();
-        this.CurrentState.IsWallCatching = false;
+        if (!this.IsFrozen) {
+            base.Update();
+            this.CurrentState.IsWallCatching = false;
 
-        //this.moveHorizontalAxisの更新(ActionLockが掛かっているなら更新されない)
-        if (!this.IsActionLocked)
-        {
-            //横方向の入力から進むべき方向を取得する
-            if (this.Operation.Horizontal.IsPressing)
+            //this.moveHorizontalAxisの更新(ActionLockが掛かっているなら更新されない)
+            if (!this.IsActionLocked)
             {
-                //入力アリなら入力方向に設定(1 or -1 or 0)
-                RaycastHit2D hit, hit2, hit3;
-                hit = Physics2D.Linecast(this.transform.position + new Vector3(0, -0.12f), this.transform.position + new Vector3(this.Operation.Horizontal.AxisRaw * 0.26f, -0.3f), this.layerMask);
-                hit2 = Physics2D.Linecast(this.transform.position + new Vector3(0, -0f), this.transform.position + new Vector3(this.Operation.Horizontal.AxisRaw * 0.26f, -0.3f), this.layerMask);
-                hit3 = Physics2D.Linecast(this.transform.position + new Vector3(0, 0.1f), this.transform.position + new Vector3(this.Operation.Horizontal.AxisRaw * 0.26f, -0.5f), this.layerMask);
+                //横方向の入力から進むべき方向を取得する
+                if (this.Operation.Horizontal.IsPressing)
+                {
+                    //入力アリなら入力方向に設定(1 or -1 or 0)
+                    RaycastHit2D hit, hit2, hit3;
+                    hit = Physics2D.Linecast(this.transform.position + new Vector3(0, -0.12f), this.transform.position + new Vector3(this.Operation.Horizontal.AxisRaw * 0.26f, -0.3f), this.layerMask);
+                    hit2 = Physics2D.Linecast(this.transform.position + new Vector3(0, -0f), this.transform.position + new Vector3(this.Operation.Horizontal.AxisRaw * 0.26f, -0.3f), this.layerMask);
+                    hit3 = Physics2D.Linecast(this.transform.position + new Vector3(0, 0.1f), this.transform.position + new Vector3(this.Operation.Horizontal.AxisRaw * 0.26f, -0.5f), this.layerMask);
 
-                if (hit.transform == null && hit2.transform == null && hit3.transform == null)
-                {
-                    this.moveHorizontalAxis = this.Operation.Horizontal.AxisRaw;
-                }
-                else
-                {
-                    if (this.ActionStatus.CanWallJump)
+                    if (hit.transform == null && hit2.transform == null && hit3.transform == null)
                     {
-                        if (this.CurrentState.IsFalling && !this.CurrentState.IsLanding)
+                        this.moveHorizontalAxis = this.Operation.Horizontal.AxisRaw;
+                    }
+                    else
+                    {
+                        if (this.ActionStatus.CanWallJump)
                         {
-                            if (hit2.transform != null || hit.transform != null || hit3.transform != null)
+                            if (this.CurrentState.IsFalling && !this.CurrentState.IsLanding)
                             {
-                                this.CurrentState.IsWallCatching = true;
-                                this.FacingDirectionHorizontal = (int)this.Operation.Horizontal.AxisRaw;
-                                this.wallCatchedTime = Time.time;
+                                if (hit2.transform != null || hit.transform != null || hit3.transform != null)
+                                {
+                                    this.CurrentState.IsWallCatching = true;
+                                    this.FacingDirectionHorizontal = (int)this.Operation.Horizontal.AxisRaw;
+                                    this.wallCatchedTime = Time.time;
+                                }
                             }
                         }
+                        this.moveHorizontalAxis = 0f;
                     }
+                }
+                else
+                {   //入力がないなら0(動かない)
                     this.moveHorizontalAxis = 0f;
                 }
-            }
-            else
-            {   //入力がないなら0(動かない)
-                this.moveHorizontalAxis = 0f;
-            }
 
-            //CurrentStateの更新
-            this.CurrentState.IsRunning = this.moveHorizontalAxis != 0;
-            if (this.CurrentState.IsLanding)
-            {
-                this.FacingDirectionHorizontal = (int)this.moveHorizontalAxis;
-                this.CurrentState.IsWallCatching = false; //強制壁つかまり解除
-                this.wallCatchedTime = 0;
-            }
-            if (!this.CurrentState.IsWallCatching)
-            {
-                if (!(Time.time - this.wallCatchedTime > this.ActionStatus.WallCatchTime))
+                //CurrentStateの更新
+                this.CurrentState.IsRunning = this.moveHorizontalAxis != 0;
+                if (this.CurrentState.IsLanding)
                 {
-                    this.CurrentState.IsWallCatching = true;
-                    this.moveHorizontalAxis = 0f;
+                    this.FacingDirectionHorizontal = (int)this.moveHorizontalAxis;
+                    this.CurrentState.IsWallCatching = false; //強制壁つかまり解除
+                    this.wallCatchedTime = 0;
                 }
-            }
-
-            if (this.Operation.Jump.IsPressed)
-            {
-                if (this.CurrentState.IsLanding || this.CurrentState.IsWallCatching)
+                if (!this.CurrentState.IsWallCatching)
                 {
-                    this.jumpPressedFlag = true;
+                    if (!(Time.time - this.wallCatchedTime > this.ActionStatus.WallCatchTime))
+                    {
+                        this.CurrentState.IsWallCatching = true;
+                        this.moveHorizontalAxis = 0f;
+                    }
+                }
+
+                if (this.Operation.Jump.IsPressed)
+                {
+                    if (this.CurrentState.IsLanding || this.CurrentState.IsWallCatching)
+                    {
+                        this.jumpPressedFlag = true;
+                    }
                 }
             }
         }

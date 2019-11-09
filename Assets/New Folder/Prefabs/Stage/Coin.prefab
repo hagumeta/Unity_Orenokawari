@@ -5035,5 +5035,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d1bfd8916e5e540ad73e1aa15a2817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinGetEvent: {fileID: 11400000, guid: cc62c6d2145cc00498670b33074c78ae, type: 2}
   gettedEffect: {fileID: 6192629917839564646}
   coinObject: {fileID: 6192629918004856067}

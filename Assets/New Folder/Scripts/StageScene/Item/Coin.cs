@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Stage.Manager;
+using Game.Stage.GameEvents;
 
-namespace Game.Stage.Gimicks
+namespace Game.Stage.Objects.Items
 {
     public class Coin : Item
     {
+        [SerializeField] protected CoinGetEvent coinGetEvent;
         [SerializeField] protected GameObject gettedEffect;
         [SerializeField] protected GameObject coinObject;
 
@@ -26,7 +29,7 @@ namespace Game.Stage.Gimicks
 
         protected virtual void GetCoin()
         {
-            StageManager.MyCoinScore.GetCoin();
+            this.coinGetEvent.Raise(1);
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace CameraControll
+namespace Extends.CameraControlls
 {
     public class Abs_CameraContent : MonoBehaviour
     {
