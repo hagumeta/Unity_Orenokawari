@@ -21,7 +21,8 @@ namespace Game.StageSelect{
 
         public Information[] InformationList
             => this.stageInformationList as StageInformation[];
-
+        public WorldData WorldData
+            => this.worldData;
 
 
         private void Start()

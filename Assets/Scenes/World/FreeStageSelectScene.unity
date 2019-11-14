@@ -786,8 +786,6 @@ MonoBehaviour:
   MassMap: {x: 8, y: 1}
   MassDist: 1.2
   MassObject: {fileID: 1978250716}
-  cursor: {fileID: 214176501}
-  worldData: {fileID: 11400000, guid: 25e646a78c4677445bd0a65215becb31, type: 2}
 --- !u!4 &206788644
 Transform:
   m_ObjectHideFlags: 0
@@ -1551,7 +1549,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &832521523
 Transform:
   m_ObjectHideFlags: 0
@@ -2375,7 +2373,7 @@ GameObject:
   - component: {fileID: 1301433424}
   - component: {fileID: 1301433423}
   m_Layer: 5
-  m_Name: Text
+  m_Name: SceneName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

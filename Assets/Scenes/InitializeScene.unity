@@ -120,6 +120,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &456918252
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 456918254}
+  - component: {fileID: 456918253}
+  m_Layer: 0
+  m_Name: _FungusState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &456918253
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456918252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedFlowchart: {fileID: 0}
+--- !u!4 &456918254
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456918252}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &600976372
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,11 +239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 764838ad862fcc443ba91ab457120b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathCountChangedEvent: {fileID: 11400000, guid: 5d301fe495d77524f939170616af07ca,
-    type: 2}
-  playerDeathEvent: {fileID: 11400000, guid: 61109ef6e13f54e47b490192bf71cae6, type: 2}
-  coinCountChangedEvent: {fileID: 11400000, guid: 2d19ed41df61e0f42874e8b392060345,
-    type: 2}
+  playerDeathEvent: {fileID: 11400000, guid: 04e376eb2cce1d244a27721c015d2c35, type: 2}
+  coinGetEvent: {fileID: 11400000, guid: cc62c6d2145cc00498670b33074c78ae, type: 2}
 --- !u!114 &600976377
 MonoBehaviour:
   m_ObjectHideFlags: 0

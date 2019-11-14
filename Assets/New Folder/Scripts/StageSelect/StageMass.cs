@@ -19,22 +19,22 @@ namespace Game.StageSelect
             LockedStageIcon,
             ClearedStageIcon;
 
-        public string massName;
         public StageState state;
 
         private Vector3 defaultScale;
 
+        public string StageNum
+        {
+            get => this.stageNumberText.text;
+            set => this.stageNumberText.text = value;
+        }
         /// <summary>
         /// マス上に表示するステージ番号を設定する
         /// </summary>
         /// <param name="stageNum"></param>
         public void SetStageNumber(string stageNum, StageState state)
         {
-            if (this.stageNumberText != null)
-            {
-                this.stageNumberText.text = stageNum;
-            }
-            this.massName = stageNum;
+            this.StageNum = stageNum;
             this.state = state;
 
             this.ResetState();
@@ -71,6 +71,11 @@ namespace Game.StageSelect
         {
             try
             {
+                this.ClearedStageIcon.SetActive(false);
+                this.UnclearedStageIcon.SetActive(false);
+                this.LockedStageIcon.SetActive(false);
+                this.stageNumberText.gameObject.SetActive(false);
+
                 switch (this.state)
                 {
                     case StageState.notCleared:
@@ -82,7 +87,7 @@ namespace Game.StageSelect
                         this.ClearedStageIcon.SetActive(true);
                         break;
                     case StageState.locked:
-                        this.stageNumberText.gameObject.SetActive(false);
+                    default:
                         this.LockedStageIcon.SetActive(true);
                         break;
                 }

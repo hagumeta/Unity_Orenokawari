@@ -8,13 +8,15 @@ namespace Game.Title
 {
     public class TitleMenuEvents : MonoBehaviour
     {
+        [SerializeField] private SceneObject stageSelectScene, freeStageSelectScene;
+
         public void GotoStageSelectScene()
         {
-            GameManager.MoveStageSelectScene();
+            GameManager.MoveScene(this.stageSelectScene);
         }
         public void GotoFreeStageSelectScene()
         {
-            GameManager.MoveFreeStageSelectScene();
+            GameManager.MoveScene(this.freeStageSelectScene);
         }
         public void GameEnd()
         {

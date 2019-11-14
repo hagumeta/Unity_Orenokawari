@@ -18,13 +18,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Stages/Stage_2.unity
     guid: edaa9e52e6e8e25499a71c36abc9a400
   - enabled: 1
-    path: Assets/Scenes/StageSelect.unity
+    path: Assets/Scenes/World/World_Story1.unity
     guid: ea3a83571fdd0524fb572793b67650e9
   - enabled: 1
     path: Assets/Scenes/StageTemplate.unity
     guid: d8712d19e8202fc47a66aac40a032d6e
   - enabled: 1
-    path: Assets/Scenes/FreeStageSelectScene.unity
+    path: Assets/Scenes/World/FreeStageSelectScene.unity
     guid: 9a085207a190b3645a7ec205a8a0dbf6
   - enabled: 1
     path: Assets/Scenes/Stages/Stage_3.unity
@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stages/Stage_8.unity
     guid: f2de13d64b20840439763388990bcc45
+  - enabled: 1
+    path: Assets/Scenes/StoryScene/Story_1-1.unity
+    guid: 90d86a2b22172de4cbb3d4da8a897d05
   m_configObjects: {}
