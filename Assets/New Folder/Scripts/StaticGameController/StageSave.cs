@@ -17,22 +17,33 @@ namespace Data.Stage
         notCleared,
         locked
     }
+    public class StageStatus
+    {
+        public bool isCleared;
+        public bool isOpened;
+        public StageStatus()
+        {
+            this.isCleared = false;
+            this.isOpened = false;
+        }
+    }
 
     [System.Serializable]
     public class StageSave
     {
         public int stageID { private set; get; }
-        public StageState state { private set; get; }
+//        public StageState state { private set; get; }
         public DeathCounts deathCounts { private set; get; }
         public CoinScore coinScore { private set; get; }
         public DateTime LastCleared{ private set; get; }
-        
+        public StageStatus stageStatus { private set; get; }
 
         public StageSave() { }
         public StageSave(int stageID)
         {
             this.stageID = stageID;
-            this.state = StageState.notCleared;
+            this.stageStatus = new StageStatus();
+//            this.state = StageState.notCleared;
             this.deathCounts = new DeathCounts(stageID);
             this.coinScore = new CoinScore(stageID);
         }
@@ -41,13 +52,8 @@ namespace Data.Stage
         {
             this.deathCounts = deathCounts;
             this.LastCleared = DateTime.Now;
-            this.state = StageState.cleared;
+            this.stageStatus.isCleared = true;
             this.coinScore = coinScore;
-        }
-
-        public void ChangeState(StageState state)
-        {
-            this.state = state;
         }
     }
 

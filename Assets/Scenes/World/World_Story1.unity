@@ -1177,6 +1177,7 @@ GameObject:
   - component: {fileID: 233028113}
   - component: {fileID: 233028112}
   - component: {fileID: 233028111}
+  - component: {fileID: 233028114}
   m_Layer: 0
   m_Name: StageMass_8
   m_TagString: Untagged
@@ -1240,6 +1241,19 @@ Transform:
   m_Father: {fileID: 206788644}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &233028114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233028110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dbc37582dd0301438c5d541b1ec6083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultOpened: 0
 --- !u!1 &287162835
 GameObject:
   m_ObjectHideFlags: 0
@@ -2339,6 +2353,7 @@ GameObject:
   - component: {fileID: 453788766}
   - component: {fileID: 453788768}
   - component: {fileID: 453788767}
+  - component: {fileID: 453788769}
   m_Layer: 0
   m_Name: StageMass_10
   m_TagString: Untagged
@@ -2402,6 +2417,19 @@ MonoBehaviour:
   LockedStageIcon: {fileID: 153890320}
   ClearedStageIcon: {fileID: 1520254149}
   state: 0
+--- !u!114 &453788769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453788765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dbc37582dd0301438c5d541b1ec6083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultOpened: 0
 --- !u!1 &470839428
 GameObject:
   m_ObjectHideFlags: 0
@@ -2689,6 +2717,7 @@ GameObject:
   - component: {fileID: 578929790}
   - component: {fileID: 578929789}
   - component: {fileID: 578929788}
+  - component: {fileID: 578929791}
   m_Layer: 0
   m_Name: StageMass_4
   m_TagString: Untagged
@@ -2752,6 +2781,19 @@ Transform:
   m_Father: {fileID: 206788644}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &578929791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578929787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dbc37582dd0301438c5d541b1ec6083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultOpened: 0
 --- !u!1 &580659052
 GameObject:
   m_ObjectHideFlags: 0
@@ -5876,6 +5918,7 @@ GameObject:
   - component: {fileID: 1101527368}
   - component: {fileID: 1101527367}
   - component: {fileID: 1101527366}
+  - component: {fileID: 1101527369}
   m_Layer: 0
   m_Name: StageMass_1
   m_TagString: Untagged
@@ -5939,6 +5982,19 @@ Transform:
   m_Father: {fileID: 206788644}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1101527369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101527365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dbc37582dd0301438c5d541b1ec6083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultOpened: 1
 --- !u!1 &1164871108
 GameObject:
   m_ObjectHideFlags: 0
@@ -7510,6 +7566,7 @@ GameObject:
   - component: {fileID: 1423753533}
   - component: {fileID: 1423753532}
   - component: {fileID: 1423753531}
+  - component: {fileID: 1423753534}
   m_Layer: 0
   m_Name: StageMass_3
   m_TagString: Untagged
@@ -7573,6 +7630,19 @@ Transform:
   m_Father: {fileID: 206788644}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1423753534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423753530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dbc37582dd0301438c5d541b1ec6083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultOpened: 0
 --- !u!1 &1431744750
 GameObject:
   m_ObjectHideFlags: 0
@@ -7584,6 +7654,7 @@ GameObject:
   - component: {fileID: 1431744753}
   - component: {fileID: 1431744752}
   - component: {fileID: 1431744751}
+  - component: {fileID: 1431744754}
   m_Layer: 0
   m_Name: StageMass_5
   m_TagString: Untagged
@@ -7647,6 +7718,19 @@ Transform:
   m_Father: {fileID: 206788644}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1431744754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431744750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dbc37582dd0301438c5d541b1ec6083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultOpened: 0
 --- !u!1 &1438323191
 GameObject:
   m_ObjectHideFlags: 0
@@ -7922,6 +8006,7 @@ GameObject:
   - component: {fileID: 1470606410}
   - component: {fileID: 1470606409}
   - component: {fileID: 1470606408}
+  - component: {fileID: 1470606411}
   m_Layer: 0
   m_Name: StageMass_6
   m_TagString: Untagged
@@ -7985,6 +8070,19 @@ Transform:
   m_Father: {fileID: 206788644}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1470606411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470606407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dbc37582dd0301438c5d541b1ec6083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultOpened: 0
 --- !u!1 &1520254149
 GameObject:
   m_ObjectHideFlags: 0
@@ -8724,6 +8822,7 @@ GameObject:
   - component: {fileID: 1598195458}
   - component: {fileID: 1598195457}
   - component: {fileID: 1598195456}
+  - component: {fileID: 1598195459}
   m_Layer: 0
   m_Name: StageMass_7
   m_TagString: Untagged
@@ -8787,6 +8886,19 @@ Transform:
   m_Father: {fileID: 206788644}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1598195459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598195455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dbc37582dd0301438c5d541b1ec6083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultOpened: 0
 --- !u!1 &1630499673
 GameObject:
   m_ObjectHideFlags: 0
@@ -9893,6 +10005,7 @@ GameObject:
   - component: {fileID: 1895055436}
   - component: {fileID: 1895055435}
   - component: {fileID: 1895055434}
+  - component: {fileID: 1895055437}
   m_Layer: 0
   m_Name: StageMass_2
   m_TagString: Untagged
@@ -9956,6 +10069,19 @@ Transform:
   m_Father: {fileID: 206788644}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1895055437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895055433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dbc37582dd0301438c5d541b1ec6083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultOpened: 0
 --- !u!1 &1902882671
 GameObject:
   m_ObjectHideFlags: 0
@@ -10094,6 +10220,7 @@ GameObject:
   - component: {fileID: 1932623650}
   - component: {fileID: 1932623652}
   - component: {fileID: 1932623651}
+  - component: {fileID: 1932623653}
   m_Layer: 0
   m_Name: StageMass_9
   m_TagString: Untagged
@@ -10157,6 +10284,19 @@ MonoBehaviour:
   LockedStageIcon: {fileID: 2032120027}
   ClearedStageIcon: {fileID: 1889855489}
   state: 0
+--- !u!114 &1932623653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932623649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dbc37582dd0301438c5d541b1ec6083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultOpened: 0
 --- !u!1 &1932834904
 GameObject:
   m_ObjectHideFlags: 0

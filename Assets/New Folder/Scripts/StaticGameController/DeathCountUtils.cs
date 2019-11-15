@@ -56,12 +56,10 @@ namespace Game
         public void GetCoin(int num = 1)
         {
             this.CoinCount += num;
-//            GameEventManager.GetCoinEvent.Raise(num);
         }
         public void GetMedal()
         {
             this.IsGettedMedal = true;
-//            GameEventManager.GetCoinEvent.Raise();
         }
 
         public string CoinStatus

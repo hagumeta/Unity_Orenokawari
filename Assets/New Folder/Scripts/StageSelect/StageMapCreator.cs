@@ -28,6 +28,7 @@ namespace Game.StageSelect
         {
             Invoke("SetUpStageDatas", Time.deltaTime);
         }
+
         protected void SetUpStageDatas()
         {
             var controller = this.GetComponent<StageSelectController>();
@@ -42,13 +43,18 @@ namespace Game.StageSelect
                 var mass = this.Masses[j];
                 mass.controller = controller;
                 mass.id = c;
-                mass.SetStageNumber(info.StageNumber, info.StageState);
+                mass.SetStageNumber(info.StageNumber);
                 mass.gameObject.SetActive(true);
 
                 if (c < max)
                 {
                     c++;
                 }
+            }
+
+            for (int j = 0; j < this.Masses.GetLength(0); j++)
+            {
+                this.Masses[j].ResetState();
             }
         }
     }

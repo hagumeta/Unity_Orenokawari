@@ -5,6 +5,7 @@ using InputUtil;
 using TMPro;
 using System.Linq;
 using Extends.Cursor;
+using System;
 
 namespace Game.StageSelect
 {
@@ -28,16 +29,16 @@ namespace Game.StageSelect
             get => this.stageNumberText.text;
             set => this.stageNumberText.text = value;
         }
+        public StageInformation StageInformation
+            => ((StageSelectController)this.controller).GetStageInformation(this.id);
+
         /// <summary>
         /// マス上に表示するステージ番号を設定する
         /// </summary>
         /// <param name="stageNum"></param>
-        public void SetStageNumber(string stageNum, StageState state)
+        public void SetStageNumber(string stageNum)
         {
             this.StageNum = stageNum;
-            this.state = state;
-
-            this.ResetState();
         }
 
         void Start()
@@ -71,6 +72,12 @@ namespace Game.StageSelect
         {
             try
             {
+                var rel = this.GetComponent<StageStateRelationController>();
+                if (rel != null)
+                {
+                    rel.SetStageState();
+                }
+
                 this.ClearedStageIcon.SetActive(false);
                 this.UnclearedStageIcon.SetActive(false);
                 this.LockedStageIcon.SetActive(false);
@@ -92,8 +99,13 @@ namespace Game.StageSelect
                         break;
                 }
             }
-            catch {
+            catch (Exception e){
+                Debug.Log(e);
                 this.state = StageState.locked;
+                this.ClearedStageIcon.SetActive(false);
+                this.UnclearedStageIcon.SetActive(false);
+                this.LockedStageIcon.SetActive(true);
+                this.stageNumberText.gameObject.SetActive(false);
             }
 
             this.GetComponent<Mass>().IsActive = !(this.state == StageState.locked);

@@ -14,8 +14,13 @@ namespace Game.StageSelect{
         public StageSave StageSaveData { get; private set; }
         public DeathCounts DeathCounts
             => this.StageSaveData.deathCounts;
-        public StageState StageState
-            => this.StageSaveData.state;
+        public bool IsCleared
+            => this.StageSaveData.stageStatus.isCleared;
+        public bool IsOpened
+            => this.StageSaveData.stageStatus.isOpened;
+
+/*        public StageState StageState
+            => this.StageSaveData.state;*/
         public DateTime LastCleared
             => this.StageSaveData.LastCleared;
 

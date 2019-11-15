@@ -8,21 +8,58 @@ namespace Game.StageSelect
 {
 
     [RequireComponent(typeof(StageMass))]
+    [RequireComponent(typeof(Mass))]
+
     public class StageStateRelationController : MonoBehaviour
     {
+        [SerializeField] private bool defaultOpened = false;
 
-        protected StageMass stageMass
-            => this.GetComponent<StageMass>();
+        public StageMass stageMass
+            => this.gameObject.GetComponent<StageMass>();
+        protected Mass mass
+            => this.gameObject.GetComponent<Mass>();
 
-
-        protected  StageState ChkThisActivate()
+        protected StageState ChkThisActivate()
         {
-            return StageState.locked;
+            StageInformation info = this.stageMass.StageInformation;
+            
+            if (info.IsCleared)
+            {
+                return StageState.cleared;
+            }
+            bool open = this.defaultOpened;
+            foreach (var ma in this.mass.next)
+            {
+                var nextMass = ma.Value;
+                if (nextMass != null)
+                {
+                    var s = nextMass.GetComponent<StageMass>();
+                    if (s != null) {
+                        if (s.StageInformation.IsCleared)
+                        {
+                            open = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            if (open || info.IsOpened)
+            {
+                return StageState.notCleared;
+            }
+            else
+            {
+                return StageState.locked;
+            }
+        }
+
+        public void SetStageState()
+        {
+            this.stageMass.state = this.ChkThisActivate();
         }
 
         void Start()
         {
-
         }
 
         void Update()
