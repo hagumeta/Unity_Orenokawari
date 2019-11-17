@@ -1,9 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using Data.Stage;
-using Game.StageSelect;
+using Game.Data;
 
 namespace Game
 {

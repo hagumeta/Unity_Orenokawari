@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Linq;
-
+using Game.Data;
 
 namespace Game.StageSelect
 {

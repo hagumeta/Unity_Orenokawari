@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace Game.StageSelect
+namespace Extends.SelectUtils
 {
 
     public interface ISelectController

@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Data.Stage;
-
+using Game.Stage;
+using Game.Data;
 
 namespace Game.StageSelect
 {

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using System.Text.RegularExpressions;
 
-namespace Data.Stage
+namespace Game.Data.Static
 {
     [CreateAssetMenu(menuName = "StageDatas/Create WorldData", fileName = "ParameterTable")]
     public class WorldData : ScriptableObject

@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Game.Data.Dynamic;
+using Game.Data.Static;
+using Game.Data;
 
-using Data.Stage;
 using Game.Stage;
 using InputUtil;
-using Data.Scene;
 
 namespace Game
 {
@@ -124,3 +125,4 @@ namespace Game
 
     }
 }
+

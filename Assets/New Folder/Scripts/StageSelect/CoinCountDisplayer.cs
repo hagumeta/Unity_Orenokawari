@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Game.Data.Dynamic;
+using Game.Data;
 
 namespace Game.StageSelect
 {
@@ -12,10 +14,10 @@ namespace Game.StageSelect
 
         private void ResetDisplay()
         {
-            this.count_text.text = this._coinScore.CoinStatus;
-            this.count_text.color = this._coinScore.IsCoinGetAll ? Color.red : Color.black;
+            this.count_text.text = this._coinScore.CoinStatus();
+            this.count_text.color = this._coinScore.IsCoinGetAll() ? Color.red : Color.black;
 
-            if (this._coinScore.IsCoinGetAll)
+            if (this._coinScore.IsCoinGetAll())
             {
                 this.count_text.color = Color.red;
             }

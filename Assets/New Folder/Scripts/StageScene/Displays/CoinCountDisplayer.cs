@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Game.Stage.Manager;
 using Game.Stage.GameEvents;
+using Game.Data;
 
 namespace Game.Stage.Displayer
 {
@@ -12,7 +13,7 @@ namespace Game.Stage.Displayer
     {
         public override void UpdateCountText()
         {
-            this.text.text = StageManager.MyCoinScore.CoinStatus;
+            this.text.text = StageManager.MyCoinScore.CoinStatus();
         }
 
         public void OnEventRaised(int coinNum)

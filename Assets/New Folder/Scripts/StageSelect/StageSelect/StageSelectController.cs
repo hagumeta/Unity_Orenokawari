@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Data.Stage;
+using Game.Stage;
 using UnityEngine.SceneManagement;
 using Game.Sounds;
 using System.Linq;
 using Extends.Cursor;
+using Extends.SelectUtils;
+using Game.Data.Static;
+using Game.Data;
 
 namespace Game.StageSelect{
     public class StageSelectController : MonoBehaviour, ISelectController

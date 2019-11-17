@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Data.Scene
+namespace Game.Data.Static
 {
     [CreateAssetMenu(menuName = "Option/GameScenes", fileName = "ParameterTable")]
     public class GameScenes : ScriptableObject

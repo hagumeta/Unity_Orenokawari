@@ -1,14 +1,22 @@
 ﻿using UnityEngine;
 using DG.Tweening;
-using Data.Stage;
+using Game.Stage;
 using InputUtil;
 using TMPro;
 using System.Linq;
 using Extends.Cursor;
 using System;
+using Game.Data;
 
 namespace Game.StageSelect
 {
+    [System.Serializable]
+    public enum StageState
+    {
+        cleared,
+        notCleared,
+        locked
+    }
 
     public class StageMass : SelectMass
     {

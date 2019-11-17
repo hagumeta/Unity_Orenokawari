@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Data.Static;
 
-
-namespace Data.Stage
+namespace Game.Data
 {
 
     public abstract class DataController<T> where T : Object

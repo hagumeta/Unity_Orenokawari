@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using InputUtil;
-using Data.Stage;
+using Game.Stage;
 
 namespace Game
 {
@@ -13,7 +13,7 @@ namespace Game
             TitleScene,
             InitializeScene;
 
-        public void GoToScene(Scene scene)
+        public void GoToScene(UnityEngine.SceneManagement.Scene scene)
         {
             SceneTransitionManager.GotoScene(scene.name, 1, 0.5f);
         }

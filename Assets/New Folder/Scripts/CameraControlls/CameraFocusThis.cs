@@ -22,11 +22,13 @@ namespace Extends.CameraControlls
 
         private void setCameraController()
         {
-            this._cameraController = Camera.main.GetComponent<CameraController>();
-            if (this.cameraController == null)
-            {
-                Debug.Log("Main cameraにcameraControllerつけ忘れてるよ");
-                this.enabled = false;
+            if (Camera.main != null) {
+                this._cameraController = Camera.main.GetComponent<CameraController>();
+                if (this.cameraController == null)
+                {
+                    Debug.Log("Main cameraにcameraControllerつけ忘れてるよ");
+                    this.enabled = false;
+                }
             }
         }
 
