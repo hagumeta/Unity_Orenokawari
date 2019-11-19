@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Game.Stage;
+﻿using UnityEngine;
 using Game.Data;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Game.StageSelect
 {
@@ -10,16 +9,47 @@ namespace Game.StageSelect
     [RequireComponent(typeof(StageMass))]
     [RequireComponent(typeof(Mass))]
 
-    public class StageStateRelationController : MonoBehaviour
+    public class StageStateRelationController : StageMassRelationController
     {
-        [SerializeField] private bool defaultOpened = false;
 
-        public StageMass stageMass
-            => this.gameObject.GetComponent<StageMass>();
-        protected Mass mass
-            => this.gameObject.GetComponent<Mass>();
+/*        public new List<StageMass> RelationMasses
+            => this.SerchNextStageMasses(this.mass);
+            */
 
-        protected StageState ChkThisActivate()
+        protected List<StageMass> SerchNextStageMasses(Mass mass)
+        {
+            var list = new List<StageMass>();
+            foreach (var ma in this.mass.next)
+            {
+                var nextMass = ma.Value;
+                if (nextMass != null)
+                {
+                    var s = nextMass.GetComponent<StageMass>();
+                    if (s != null)
+                    {
+                        list.Add(s);
+                    }
+                    else
+                    {
+                        var l = this.SerchNextStageMasses(nextMass);
+                        if (l.Count >= 1)
+                        {
+                            list.AddRange(l);
+                        }
+                    }
+                }
+            }
+            return list;
+        }
+
+        protected override StageState ChkThisActivate()
+        {
+            this.RelationMasses = this.SerchNextStageMasses(this.mass);
+            return base.ChkThisActivate();
+        }
+
+        /*
+        protected override StageState ChkThisActivate()
         {
             StageInformation info = this.stageMass.StageInformation;
             
@@ -57,14 +87,6 @@ namespace Game.StageSelect
         {
             this.stageMass.state = this.ChkThisActivate();
         }
-
-        void Start()
-        {
-        }
-
-        void Update()
-        {
-
-        }
+        */
     }
 }
