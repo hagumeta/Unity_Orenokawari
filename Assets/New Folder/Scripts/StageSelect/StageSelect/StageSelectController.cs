@@ -31,7 +31,7 @@ namespace Game.StageSelect{
         private void Start()
         {
             this.LoadData(this.worldData);
-            Invoke("SetCursorPosition", 0.5f);
+            Invoke("SetCursorPosition", 0.1f);
         }
 
         private void SetCursorPosition()
