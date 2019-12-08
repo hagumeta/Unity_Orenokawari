@@ -26,8 +26,27 @@ public class Mass : MonoBehaviour {
     public struct NextToMass
     {
         public Mass right, left, up, down;
+        public Dictionary<string, Mass> asDict
+        {
+            get
+            {
+                var list = new Dictionary<string, Mass>();
+                list["up"] = this.up;
+                list["down"] = this.down;
+                list["right"] = this.right;
+                list["left"] = this.left;
+                return list;
+            }
+        }
+        public IEnumerator<KeyValuePair<string, Mass>> GetEnumerator()
+        {
+            foreach (KeyValuePair<string, Mass> s in this.asDict)
+            {
+                yield return s;
+            }
+        }
     }
-    
+
 
     private void OnDrawGizmosSelected()
     {

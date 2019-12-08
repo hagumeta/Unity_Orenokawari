@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Data.Stage;
+using Game.Stage;
 using UnityEngine.SceneManagement;
 using Game.Sounds;
 using System.Linq;
 using Extends.Cursor;
+using Extends.SelectUtils;
+using Game.Data.Static;
+using Game.Data;
 
 namespace Game.StageSelect{
     public class StageSelectController : MonoBehaviour, ISelectController
@@ -21,13 +24,14 @@ namespace Game.StageSelect{
 
         public Information[] InformationList
             => this.stageInformationList as StageInformation[];
-
+        public WorldData WorldData
+            => this.worldData;
 
 
         private void Start()
         {
             this.LoadData(this.worldData);
-            Invoke("SetCursorPosition", 0.5f);
+            Invoke("SetCursorPosition", 0.1f);
         }
 
         private void SetCursorPosition()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-namespace Data.Stage
+namespace Game.Data.Static
 {
     [CreateAssetMenu(menuName = "StageDatas/Create StageData", fileName = "ParameterTable")]
     public class StageData : ScriptableObject

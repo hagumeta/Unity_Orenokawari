@@ -3,36 +3,39 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
-using Game;
 
-namespace Data.Stage
+namespace Game.Data.Dynamic
 {
     //https://moon-bear.com/2019/03/23/%E3%80%90unity%E3%80%91json%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E3%82%BB%E3%83%BC%E3%83%96%E3%83%BB%E3%83%AD%E3%83%BC%E3%83%89%E5%87%A6%E7%90%86/
     //http://yasuand.hatenablog.com/entry/2013/09/12/051655
 
-    [System.Serializable]
-    public enum StageState
+    public class StageStatus
     {
-        cleared,
-        notCleared,
-        locked
+        public bool isCleared;
+        public bool isOpened;
+        public StageStatus()
+        {
+            this.isCleared = false;
+            this.isOpened = false;
+        }
     }
 
     [System.Serializable]
     public class StageSave
     {
         public int stageID { private set; get; }
-        public StageState state { private set; get; }
+//        public StageState state { private set; get; }
         public DeathCounts deathCounts { private set; get; }
         public CoinScore coinScore { private set; get; }
         public DateTime LastCleared{ private set; get; }
-        
+        public StageStatus stageStatus { private set; get; }
 
         public StageSave() { }
         public StageSave(int stageID)
         {
             this.stageID = stageID;
-            this.state = StageState.notCleared;
+            this.stageStatus = new StageStatus();
+//            this.state = StageState.notCleared;
             this.deathCounts = new DeathCounts(stageID);
             this.coinScore = new CoinScore(stageID);
         }
@@ -41,13 +44,8 @@ namespace Data.Stage
         {
             this.deathCounts = deathCounts;
             this.LastCleared = DateTime.Now;
-            this.state = StageState.cleared;
+            this.stageStatus.isCleared = true;
             this.coinScore = coinScore;
-        }
-
-        public void ChangeState(StageState state)
-        {
-            this.state = state;
         }
     }
 

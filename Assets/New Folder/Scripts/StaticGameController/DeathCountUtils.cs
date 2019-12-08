@@ -4,8 +4,9 @@ using System.Linq;
 using UnityEngine;
 using System;
 
-namespace Game
+namespace Game.Data.Dynamic
 {
+
     public class DeathCounts
     {
         public Dictionary<DeathType, int> deathes { get; private set; }
@@ -31,10 +32,12 @@ namespace Game
 
         public int SumCount
             => this.deathes.Values.Sum();
+/*
         public bool IsDeathMinimize
             => this.MinDeath >= this.SumCount;
         public int MinDeath
             => GameManager.StageData.Get(this.StageID).HeiwaDeathBorder;
+            */
     }
 
 
@@ -56,20 +59,19 @@ namespace Game
         public void GetCoin(int num = 1)
         {
             this.CoinCount += num;
-//            GameEventManager.GetCoinEvent.Raise(num);
         }
         public void GetMedal()
         {
             this.IsGettedMedal = true;
-//            GameEventManager.GetCoinEvent.Raise();
         }
 
-        public string CoinStatus
-            => String.Format("{0}/{1}", this.CoinCount, this.MaxCoinCount);
-        public bool IsCoinGetAll
-            => this.CoinCount >= this.MaxCoinCount;
-        public int MaxCoinCount
-            => GameManager.StageData.Get(this.StageID).MaxCoinAmount;
-
+        /*
+                public bool IsCoinGetAll
+                    => this.CoinCount >= this.MaxCoinCount;
+                public int MaxCoinCount
+                    => GameManager.StageData.Get(this.StageID).MaxCoinAmount;
+                public string CoinStatus
+                    => String.Format("{0}/{1}", this.CoinCount, this.MaxCoinCount);
+                    */
     }
 }

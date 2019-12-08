@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Data.Sounds
+namespace Game.Sounds
 {
     [CreateAssetMenu(menuName = "Option/SESoundsSetting", fileName = "ParameterTable")]
     public class SeSettings : ScriptableObject

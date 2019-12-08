@@ -6,6 +6,7 @@ using DG.Tweening;
 using InputUtil;
 using Extends.UI;
 using Game.Stage.Manager;
+using Game.Data;
 //参考：https://qiita.com/calmbooks/items/5d78a60f07921238020e
 
 namespace Game.Stage {
@@ -87,9 +88,9 @@ namespace Game.Stage {
 
         private string GetOreComment()
         {
-            var coinGetAll = StageManager.MyCoinScore.IsCoinGetAll;
+            var coinGetAll = StageManager.MyCoinScore.IsCoinGetAll();
             var getMedal = StageManager.MyCoinScore.IsGettedMedal;
-            var deathMin = StageManager.MyDeathCounts.IsDeathMinimize;
+            var deathMin = StageManager.MyDeathCounts.IsDeathMinimize();
             if (coinGetAll && getMedal && deathMin) {
                 return this.oreComment_perfect;
             }

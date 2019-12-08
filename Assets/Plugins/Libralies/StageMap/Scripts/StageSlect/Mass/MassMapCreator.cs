@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
-
+#endif
 
 public class MassMapCreator : MonoBehaviour{
 
@@ -11,6 +12,7 @@ public class MassMapCreator : MonoBehaviour{
     public float MassDist;
     public GameObject MassObject;
     protected Mass[,] Masses;
+    
 
     public virtual void MapCreate()
     {
@@ -34,6 +36,7 @@ public class MassMapCreator : MonoBehaviour{
             {
                 Vector3 dist = new Vector3(i - (this.MassMap.x-1) / 2f, j - (this.MassMap.y-1) / 2f, 0) * this.MassDist;
                 var obj = Instantiate(this.MassObject, this.transform);
+                obj.SetActive(true);
                 obj.transform.position = this.transform.position + dist;
 
                 this.Masses[i, j] = obj.GetComponent<Mass>();
@@ -85,15 +88,18 @@ public class MassMapCreator : MonoBehaviour{
 
 #if UNITY_EDITOR
 [CustomEditor(typeof(MassMapCreator))]
-public class CustomMapEditor : Editor
+public class CustomMapEditor : BaseCustomMapEditor<MassMapCreator>
 {
+}
 
 
 
+public class BaseCustomMapEditor<T> : Editor where T : MassMapCreator
+{
     public override void OnInspectorGUI()
     {
         Color def = GUI.backgroundColor;
-        MassMapCreator map = target as MassMapCreator;
+        T map = target as T;
 
         GUI.backgroundColor = Color.grey;
         using (new GUILayout.VerticalScope(EditorStyles.helpBox))

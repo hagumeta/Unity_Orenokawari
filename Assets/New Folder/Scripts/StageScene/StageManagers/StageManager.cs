@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Data.Stage;
+using Game.Data;
+using Game.Data.Dynamic;
+using Game.Data.Static;
+
 using System.Linq;
 using UnityEngine.SceneManagement;
 using Game.StageSelect;
@@ -28,7 +31,6 @@ namespace Game.Stage.Manager
             => this.stageData;
         public WorldData WorldData
             => this.worldData;
-
 
         private int StageID
             => this.StageData.StageId;

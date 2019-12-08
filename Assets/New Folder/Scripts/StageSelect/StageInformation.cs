@@ -2,10 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Data.Stage;
+using Game.Stage;
+using Game.Data.Dynamic;
+using Game.Data.Static;
+using Extends.SelectUtils;
 
-
-namespace Game.StageSelect{
+namespace Game.Data
+{
     public class StageInformation : Information
     {
         public int WorldID { get; private set; }
@@ -14,8 +17,13 @@ namespace Game.StageSelect{
         public StageSave StageSaveData { get; private set; }
         public DeathCounts DeathCounts
             => this.StageSaveData.deathCounts;
-        public StageState StageState
-            => this.StageSaveData.state;
+        public bool IsCleared
+            => this.StageSaveData.stageStatus.isCleared;
+        public bool IsOpened
+            => this.StageSaveData.stageStatus.isOpened;
+
+/*        public StageState StageState
+            => this.StageSaveData.state;*/
         public DateTime LastCleared
             => this.StageSaveData.LastCleared;
 
@@ -58,4 +66,34 @@ namespace Game.StageSelect{
             }
         }
     }
+
+
+    public static class CoinScoreExtends
+    {
+        public static int MaxCoinCount(this CoinScore coinScore)
+        {
+            return GameManager.StageData.Get(coinScore.StageID).MaxCoinAmount;
+        }
+        public static bool IsCoinGetAll(this CoinScore coinScore)
+        {
+            return coinScore.CoinCount >= coinScore.MaxCoinCount();
+        }
+        public static string CoinStatus(this CoinScore coinScore)
+        {
+            return String.Format("{0}/{1}", coinScore.CoinCount, coinScore.MaxCoinCount());
+        }
+    }
+
+    public static class DeathCountsExtends
+    {
+        public static int MinDeath(this DeathCounts deathCounts)
+        {
+            return GameManager.StageData.Get(deathCounts.StageID).HeiwaDeathBorder;
+        }
+        public static bool IsDeathMinimize(this DeathCounts deathCounts)
+        {
+            return deathCounts.MinDeath() >= deathCounts.SumCount;
+        }
+    }
+
 }

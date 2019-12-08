@@ -127,6 +127,7 @@ namespace Game.Stage.Actor
             {
                 cam.cameraController.MoveLock = false;
                 cam.cameraController.FocusOnObject(this.transform, 3, Vector2.zero);
+                cam.cameraController.FocusPositionSetImmidiately();
             }
 
             yield return new WaitForSeconds(0.3f);

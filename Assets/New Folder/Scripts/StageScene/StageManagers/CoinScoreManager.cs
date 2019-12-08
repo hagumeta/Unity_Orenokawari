@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Stage.GameEvents;
+using Game.Data.Dynamic;
 
 namespace Game.Stage.Manager
 {

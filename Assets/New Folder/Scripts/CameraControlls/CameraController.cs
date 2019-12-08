@@ -32,7 +32,7 @@ namespace Extends.CameraControlls
                 DOTween.To(
                     () => this.camera.orthographicSize,
                 size => this.camera.orthographicSize = size,
-                value, 0.6f
+                value, 0.9f
                     ).SetEase(Ease.InExpo);
             }
         }
@@ -79,7 +79,16 @@ namespace Extends.CameraControlls
             this.TargetObject = targetObjectTransform;
         }
 
-        public void UnFocus()
+
+        public void FocusPositionSetImmidiately()
+        {
+            if (this.TargetObject != null && !this.moveLock)
+            {
+                var targetPos = new Vector3(this.TargetObject.transform.position.x, this.TargetObject.transform.position.y, this.defaultPosition.z) + (Vector3)this.diff;
+                this.transform.position = targetPos;
+            }
+        }
+            public void UnFocus()
         {
             this.TargetObject = null;
         }

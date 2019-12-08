@@ -64,6 +64,7 @@ namespace Extends.Cursor
             {
                 if (immediate)
                 {
+                    this.transform.DOKill();
                     this.MoveTo(nextMass.transform, 10000f);
                 }
                 else
