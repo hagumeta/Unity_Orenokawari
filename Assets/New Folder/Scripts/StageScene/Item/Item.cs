@@ -7,10 +7,13 @@ namespace Game.Stage.Objects.Items
 {
     public abstract class Item : MonoBehaviour, IPlayerTouchGimick
     {
+
         public void OnPlayerTouched(Transform player)
         {
             this.GettedItem();
         }
         abstract protected void GettedItem();
+
+        public void OnPlayerReleased(Transform player) { }
     }
 }

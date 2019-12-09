@@ -18,7 +18,6 @@ public class OperationablePlatformActor : PlatformActor {
     private bool IsActionLocked = false;
     private float wallCatchedTime = 0;
 
-
     private bool jumpPressedFlag = false;
 
     /// <summary>
@@ -111,6 +110,8 @@ public class OperationablePlatformActor : PlatformActor {
     {
         this.VerticalSpeed += (this.ActionStatus.WallJumpSpeed + this.ActionStatus.OnWallFallSpeed);
         this.HorizontalSpeed = -this.FacingDirectionHorizontal * this.ActionStatus.RunSpeed;
+        //this.RunSpeed = -this.FacingDirectionHorizontal * this.ActionStatus.RunSpeed;
+
         this.FacingDirectionHorizontal *= -1;
         this.wallCatchedTime = 0;
         this.ActionLock(this.WallJumpCoolTime);
@@ -123,10 +124,10 @@ public class OperationablePlatformActor : PlatformActor {
     /// </summary>
     protected override void FixedUpdate()
     {
-        base.FixedUpdate();
         if (!this.IsFrozen) {
             if (!this.IsActionLocked)
             {
+                //this.RunSpeed = this.moveHorizontalAxis * this.ActionStatus.RunSpeed;
                 this.HorizontalSpeed = this.moveHorizontalAxis * this.ActionStatus.RunSpeed;
 
                 if (this.CurrentState.IsJumping)
@@ -156,6 +157,7 @@ public class OperationablePlatformActor : PlatformActor {
                 }
             }
         }
+        base.FixedUpdate();
     }
 
     protected virtual void ActionLock(float time)

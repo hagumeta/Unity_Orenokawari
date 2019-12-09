@@ -66,6 +66,15 @@ public class TrigonometicMotion : MonoBehaviour {
     void FixedUpdate () {
         Vector3 pos = new Vector3(this.H_Motion.Output, this.V_Motion.Output, this.Z_Motion.Output);
 
-        this.transform.localPosition = this.fundPosition + pos;
+        var p = this.fundPosition + pos;
+        var rigid = this.GetComponent<Rigidbody2D>();
+        if (rigid == null)
+        {
+            this.transform.localPosition = p;
+        }
+        else
+        {
+            rigid.velocity = p - this.transform.position;
+        }
 	}
 }
