@@ -6,23 +6,23 @@ using System.Linq;
 
 namespace Game.Stage.Objects
 {
-    public class BeltConveior : MonoBehaviour, ITriggerCensorReceiver
+    public class BeltConveior : MonoBehaviour, ITriggerSensorReceiver
     {
         private List<Rigidbody2D> onBelt = new List<Rigidbody2D>();
-        [SerializeField] private TriggerCensor triggerCensor;
-        [SerializeField] protected float BeltSpeed;
+        [SerializeField] private TriggerSensor triggerSensor;
+        [SerializeField] protected Vector2 BeltSpeed;
 
-        protected float FixedBeltSpeed
+        protected Vector2 FixedBeltSpeed
             => this.BeltSpeed * Time.fixedDeltaTime;
 
         private void Start()
         {
-            this.SetCensor(this.triggerCensor);
+            this.SetSensor(this.triggerSensor);
         }
 
-        public void SetCensor(TriggerCensor censor)
+        public void SetSensor(TriggerSensor sensor)
         {
-            censor.SetTriggerCensor(this);
+            sensor.SetTriggerSensor(this);
         }
 
         private void FixedUpdate()
@@ -32,9 +32,7 @@ namespace Game.Stage.Objects
             {
                 if (rigid != null && !rigid.isKinematic)
                 {
-                    var pos = rigid.position;
-                    pos.x += this.FixedBeltSpeed;
-                    rigid.position = pos;
+                    rigid.position += this.FixedBeltSpeed;
                 }
                 else
                 {
@@ -45,7 +43,7 @@ namespace Game.Stage.Objects
         }
 
 
-        public void OnTriggerCensorEnter(TriggerCensor censor, Collider2D collider)
+        public void OnTriggerSensorEnter(TriggerSensor sensor, Collider2D collider)
         {
             var rigid = collider.gameObject.GetComponent<Rigidbody2D>();
             if (rigid)
@@ -57,7 +55,7 @@ namespace Game.Stage.Objects
             }
         }
 
-        public void OnTriggerCensorExit(TriggerCensor censor, Collider2D collider)
+        public void OnTriggerSensorExit(TriggerSensor sensor, Collider2D collider)
         {
             var rigid = collider.gameObject.GetComponent<Rigidbody2D>();
             if (rigid)
@@ -69,7 +67,7 @@ namespace Game.Stage.Objects
             }
         }
 
-        public void OnTriggerCensorStay(TriggerCensor censor, Collider2D collider)
+        public void OnTriggerSensorStay(TriggerSensor sensor, Collider2D collider)
         {
         }
     }

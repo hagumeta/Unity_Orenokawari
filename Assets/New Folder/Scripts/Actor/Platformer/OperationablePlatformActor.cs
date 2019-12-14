@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
-
 public class OperationablePlatformActor : PlatformActor {
     
     //メンバ変数<インスペクタ表示>
@@ -37,28 +38,26 @@ public class OperationablePlatformActor : PlatformActor {
                 if (this.Operation.Horizontal.IsPressing)
                 {
                     //入力アリなら入力方向に設定(1 or -1 or 0)
-                    RaycastHit2D hit, hit2, hit3;
-                    hit = Physics2D.Linecast(this.transform.position + new Vector3(0, -0.12f), this.transform.position + new Vector3(this.Operation.Horizontal.AxisRaw * 0.26f, -0.3f), this.layerMask);
-                    hit2 = Physics2D.Linecast(this.transform.position + new Vector3(0, -0f), this.transform.position + new Vector3(this.Operation.Horizontal.AxisRaw * 0.26f, -0.3f), this.layerMask);
-                    hit3 = Physics2D.Linecast(this.transform.position + new Vector3(0, 0.1f), this.transform.position + new Vector3(this.Operation.Horizontal.AxisRaw * 0.26f, -0.5f), this.layerMask);
-
-                    if (hit.transform == null && hit2.transform == null && hit3.transform == null)
+                    RaycastHit2D[] hits = new RaycastHit2D[3];
+                    for (int i = 0; i < hits.Length; i++)
+                    {
+                        float y = (i - 1) * 0.3f * this.transform.localScale.x;
+                        Vector2 startPos = this.transform.position + new Vector3(0, y);
+                        Vector2 endPos = startPos + new Vector2(this.Operation.Horizontal.AxisRaw * 0.23f, 0);
+                        hits[i] = Physics2D.Linecast(startPos, endPos, this.layerMask);
+                    }
+                    if (hits.Count(a => a.collider != null && !a.collider.isTrigger) <= 0)
                     {
                         this.moveHorizontalAxis = this.Operation.Horizontal.AxisRaw;
                     }
                     else
                     {
-                        if (this.ActionStatus.CanWallJump)
+                        Debug.Log(hits.Count(a => a.collider != null && !a.collider.isTrigger));
+                        if (this.ActionStatus.CanWallJump && this.CurrentState.IsFalling && !this.CurrentState.IsLanding)
                         {
-                            if (this.CurrentState.IsFalling && !this.CurrentState.IsLanding)
-                            {
-                                if (hit2.transform != null || hit.transform != null || hit3.transform != null)
-                                {
-                                    this.CurrentState.IsWallCatching = true;
-                                    this.FacingDirectionHorizontal = (int)this.Operation.Horizontal.AxisRaw;
-                                    this.wallCatchedTime = Time.time;
-                                }
-                            }
+                            this.CurrentState.IsWallCatching = true;
+                            this.FacingDirectionHorizontal = (int)this.Operation.Horizontal.AxisRaw;
+                            this.wallCatchedTime = Time.time;
                         }
                         this.moveHorizontalAxis = 0f;
                     }
