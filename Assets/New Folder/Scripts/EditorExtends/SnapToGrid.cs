@@ -111,7 +111,6 @@ public class SnapToGrid : MonoBehaviour
         var dx = x - x0 > 0.5f ? x0 + cellSize.x - x : x0 - x;
         var dy = y - y0 > 0.5f ? y0 + cellSize.y - y : y0 - y;
 
-        Debug.Log(dx + "  " + dy);
 
         //transform.position += new Vector3(dx, dy, 0);
         

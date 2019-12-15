@@ -25,20 +25,28 @@ public class PlayerOperationablePlatformActor : OperationablePlatformActor, IPla
     }
 
     /// <summary>
+    /// isTrigger問わず相手と衝突した時にコール
+    /// </summary>
+    /// <param name="other"></param>
+    protected virtual void OnCollisionExitToOther(GameObject other)
+    {
+    }
+
+    /// <summary>
     /// プレイヤーの死亡
     /// </summary>
     public virtual void Death()
     {
         this.IsDeath = true;
         Instantiate(this.DeathEffectObject, this.gameObject.transform.position, Quaternion.identity);
-        GameObject.Destroy(this.gameObject, Time.deltaTime);
+        GameObject.Destroy(this.gameObject, Time.deltaTime*2f);
     }
 
     protected override void Update()
     {
         base.Update();
         ///プレイヤーのずり落ちを防止
-        if (!this.CurrentState.IsRunning && this.CurrentState.IsLanding)
+/*        if (!this.CurrentState.IsRunning && this.CurrentState.IsLanding)
         {
             this.Rigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
             this.Rigidbody.freezeRotation = true;
@@ -46,7 +54,7 @@ public class PlayerOperationablePlatformActor : OperationablePlatformActor, IPla
         else
         {
             this.Rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
-        }
+        }*/
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -58,6 +66,17 @@ public class PlayerOperationablePlatformActor : OperationablePlatformActor, IPla
         if (collision.isTrigger)
         {
             this.OnCollisionToOther(collision.gameObject);
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        this.OnCollisionExitToOther(collision.gameObject);
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.isTrigger)
+        {
+            this.OnCollisionExitToOther(collision.gameObject);
         }
     }
 

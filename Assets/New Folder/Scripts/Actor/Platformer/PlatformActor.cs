@@ -30,12 +30,13 @@ public class PlatformActor : MonoBehaviour {
     protected Rigidbody2D Rigidbody;                
     protected CurrentStateManager CurrentState;
     protected AnimationManager Animation;
-    protected FootOfPlatformActor ActorFoot;
     /// <summary>
     /// ActorFootについて
     /// このスクリプトをつけたGameObject下に"Foot"という名のGmaeObjectがあり，
     /// "Foot"についているFootOfActorから参照している
     /// </summary> 
+    protected FootOfPlatformActor ActorFoot;
+
 
 
     //自身のRigidbodyの速度プロパティ
@@ -43,13 +44,13 @@ public class PlatformActor : MonoBehaviour {
     {   //水平方向(x)
         set { this.Rigidbody.velocity = new Vector2(value, this.VerticalSpeed); }
         get { return this.Rigidbody.velocity.x; }
-    }   
+    }
     public float VerticalSpeed
     {   //垂直方向(y)
         set { this.Rigidbody.velocity = new Vector2(this.HorizontalSpeed, value); }
         get { return this.Rigidbody.velocity.y; }
     }
-    
+
     //水平方向について，Actorが向いている方向　のプロパティ(1:右，-1:左)
     public int FacingDirectionHorizontal
     {

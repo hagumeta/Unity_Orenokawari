@@ -15,9 +15,9 @@ MonoBehaviour:
   WorldName: "\u30B4\u30EA\u30F3\u30B8\u30E5\u30FC\u4E18"
   StageDatas:
   - extName: 1
-    stageData: {fileID: 0}
+    stageData: {fileID: 11400000, guid: b56dc8c6c748ed8489a6c7e2ff2cf5bc, type: 2}
   - extName: 2
-    stageData: {fileID: 0}
+    stageData: {fileID: 11400000, guid: b56dc8c6c748ed8489a6c7e2ff2cf5bc, type: 2}
   - extName: 3
     stageData: {fileID: 0}
   - extName: 4

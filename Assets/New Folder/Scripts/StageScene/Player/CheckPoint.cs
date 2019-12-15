@@ -27,5 +27,9 @@ namespace Game.Stage
             }
             this.latest = true;
         }
+
+        public void OnPlayerReleased(Transform player)
+        {
+        }
     }
 }

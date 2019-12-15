@@ -62,6 +62,23 @@ namespace Game.Stage.Actor
             }
         }
 
+        /// <summary>
+        /// istrigger問わず相手が離れた場合にコール
+        /// </summary>
+        /// <param name="other"></param>
+        protected override void OnCollisionExitToOther(GameObject other)
+        {
+            if (!this.IsFrozen)
+            {
+                IPlayerTouchGimick b = other.GetComponent<IPlayerTouchGimick>();
+                if (b != null)
+                {
+                    b.OnPlayerReleased(this.transform);
+                    return;
+                }
+            }
+        }
+
 
         /// <summary>
         /// 死亡方法に応じた死体を生成する
@@ -87,7 +104,6 @@ namespace Game.Stage.Actor
         /// <param name="deathType"></param>
         public void Death(DeathType deathType)
         {
-            this.IsFrozen = true;
             this.playerDeathEvent.Raise(deathType);
             this.CreateCorpse(deathType);
             Destroy(this.gameObject);
