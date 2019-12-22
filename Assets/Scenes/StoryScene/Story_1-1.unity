@@ -623,6 +623,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6423334575419214592, guid: cdd9ad8e571b12245b9a9a288efbe37a,
+        type: 3}
+      propertyPath: m_FontData.m_LineSpacing
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3365833895700363409, guid: cdd9ad8e571b12245b9a9a288efbe37a,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -633,10 +638,35 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6423334575407145664, guid: cdd9ad8e571b12245b9a9a288efbe37a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423334575407145664, guid: cdd9ad8e571b12245b9a9a288efbe37a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -140
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423334575407145664, guid: cdd9ad8e571b12245b9a9a288efbe37a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423334575407145664, guid: cdd9ad8e571b12245b9a9a288efbe37a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423334575419230626, guid: cdd9ad8e571b12245b9a9a288efbe37a,
+        type: 3}
+      propertyPath: m_PreferredWidth
+      value: 1300
+      objectReference: {fileID: 0}
     - target: {fileID: 6423334575407145662, guid: cdd9ad8e571b12245b9a9a288efbe37a,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 456.11816
+      value: 454.65115
       objectReference: {fileID: 0}
     - target: {fileID: 6423334575407145662, guid: cdd9ad8e571b12245b9a9a288efbe37a,
         type: 3}
@@ -662,36 +692,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6423334575407145664, guid: cdd9ad8e571b12245b9a9a288efbe37a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6423334575407145664, guid: cdd9ad8e571b12245b9a9a288efbe37a,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -140
-      objectReference: {fileID: 0}
-    - target: {fileID: 6423334575407145664, guid: cdd9ad8e571b12245b9a9a288efbe37a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6423334575407145664, guid: cdd9ad8e571b12245b9a9a288efbe37a,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -60
-      objectReference: {fileID: 0}
-    - target: {fileID: 6423334575419214592, guid: cdd9ad8e571b12245b9a9a288efbe37a,
-        type: 3}
-      propertyPath: m_FontData.m_LineSpacing
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6423334575419230626, guid: cdd9ad8e571b12245b9a9a288efbe37a,
-        type: 3}
-      propertyPath: m_PreferredWidth
-      value: 1300
       objectReference: {fileID: 0}
     - target: {fileID: 6423334575407221706, guid: cdd9ad8e571b12245b9a9a288efbe37a,
         type: 3}
@@ -873,6 +873,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stickman_Player_Platformer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6715952834965198071, guid: 64827ea2bf829b74fb4551a3eade96ad,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6717245298448267895, guid: 64827ea2bf829b74fb4551a3eade96ad,
         type: 3}
