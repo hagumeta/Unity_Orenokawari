@@ -2,6 +2,9 @@
 using UnityEngine;
 using Game.Stage.GameEvents;
 using Extends.CameraControlls;
+using Extends.Actors.Platformers;
+
+
 
 namespace Game.Stage.Actor
 {

@@ -8,10 +8,10 @@ namespace Game.Sounds
 {
     public class GlobalAudioCollection : SingletonMonoBehaviourFast<GlobalAudioCollection>
     {
-        [SerializeField]private SeSettings sESetting;
+        [SerializeField]private SeSettings SeStting;
 
         protected override void Init(){}
 
-        public static SeSettings SESetting => Instance.sESetting;
+        public static SeSettings SESetting => Instance.SeStting;
     }
 }
