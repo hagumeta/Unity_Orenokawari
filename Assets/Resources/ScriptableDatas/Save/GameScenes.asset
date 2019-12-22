@@ -16,8 +16,8 @@ MonoBehaviour:
     m_SceneName: GameTitle
     m_path: Assets/Scenes/GameTitle.unity
   stageSelectScene:
-    m_SceneName: StageSelect
-    m_path: Assets/Scenes/StageSelect.unity
+    m_SceneName: FreeStageSelectScene
+    m_path: Assets/Scenes/World/FreeStageSelectScene.unity
   freeStageSelectScene:
     m_SceneName: FreeStageSelectScene
     m_path: Assets/Scenes/FreeStageSelectScene.unity
