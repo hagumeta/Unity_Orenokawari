@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Extends.ScriptableDatas;
 
 namespace Extends.Sounds
 {
-    public abstract class Sound : ScriptableObject
+    public abstract class Sound : ScriptableData
     {
-        public int Index;
         public AudioClip Audio;
         public string Title;
-        public string Author;        
+        public string Author;
     }
 }
