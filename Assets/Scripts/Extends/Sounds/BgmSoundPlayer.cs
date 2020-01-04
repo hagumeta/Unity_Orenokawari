@@ -31,6 +31,7 @@ namespace Extends.Sounds
                 this.PlayingBgmSound = sound;
                 this.AudioSource.clip = sound.Audio;
                 this.AudioSource.volume = volume;
+                this.AudioSource.loop = true;
             }
         }
 
