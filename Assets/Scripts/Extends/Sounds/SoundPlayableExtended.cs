@@ -13,6 +13,12 @@ namespace Extends.Sounds
             soundPlayer.Play(sound, volume, audioMixerGroup);
         }
 
+        public static void PlayGlobal(this Sound sound, float volume = 1, AudioMixerGroup audioMixerGroup = null)
+        {
+            var soundPlayer = AddSoundPlayer(SoundController.Instance.gameObject);
+            soundPlayer.Play(sound, volume, audioMixerGroup);
+        }
+
         public static SoundPlayer AddSoundPlayer(GameObject gameObject)
         {
             var soundPlayer = gameObject.GetComponent<SoundPlayer>();

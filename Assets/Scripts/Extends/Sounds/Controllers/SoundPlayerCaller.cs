@@ -10,11 +10,19 @@ namespace Extends.Sounds
     {
         public Sound Sound;
         public AudioMixerGroup AudioMixerGroup;
+        public bool isGlobalSound;
         [Range(0, 1)] public float Volume;
 
         void Start()
         {
-            this.Sound.Play(this.gameObject, this.Volume, this.AudioMixerGroup);
+            if (this.isGlobalSound)
+            {
+                this.Sound.PlayGlobal(this.Volume, this.AudioMixerGroup);
+            }
+            else
+            {
+                this.Sound.Play(this.gameObject, this.Volume, this.AudioMixerGroup);
+            }
         }
     }
 }
