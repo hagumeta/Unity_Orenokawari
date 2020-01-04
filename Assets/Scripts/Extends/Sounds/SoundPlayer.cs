@@ -10,7 +10,8 @@ namespace Extends.Sounds
     {
         public AudioSource AudioSource
             => this.audioSource;
-        public static AudioMixerGroup DefaultAudioMixerGroup;
+        public virtual AudioMixerGroup DefaultAudioMixerGroup
+            => SoundController.Instance.GetAudioMixerGroup("master");
 
         private AudioSource audioSource;
 
@@ -27,7 +28,7 @@ namespace Extends.Sounds
             }
             else
             {
-                this.audioSource.outputAudioMixerGroup = DefaultAudioMixerGroup;
+                this.audioSource.outputAudioMixerGroup = this.DefaultAudioMixerGroup;
             }
         }
 

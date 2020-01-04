@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 namespace Extends.Sounds
 {
     public static class BgmSoundPlayableExtended

@@ -9,7 +9,8 @@ namespace Extends.Sounds
     public class BgmSoundPlayer : SoundPlayer, ISoundStoppable
     {
         public Sound PlayingBgmSound { private set; get; }
-        public new static AudioMixerGroup DefaultAudioMixerGroup;
+        public override AudioMixerGroup DefaultAudioMixerGroup
+            => SoundController.Instance.GetAudioMixerGroup("BGM");
 
         public bool IsPlaying(Sound bgmSound = null)
         {

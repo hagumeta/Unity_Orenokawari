@@ -10,7 +10,7 @@ namespace Extends.Sounds
     {
         public Sound Sound;
         public AudioMixerGroup AudioMixerGroup;
-        public float Volume;
+        [Range(0, 1)] public float Volume;
 
         void Start()
         {

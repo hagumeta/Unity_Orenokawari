@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System;
+using EditorExtends;
+
 
 namespace Extends.Sounds
 {
@@ -17,24 +19,9 @@ namespace Extends.Sounds
 
         public override void OnInspectorGUI()
         {
+            var pastSound = this.SoundPlayerCaller.Sound;
+
             base.OnInspectorGUI();
-
-            string defaultMixerGroup = "未指定";
-            try
-            {
-                if (this.SoundPlayerCaller.Sound is BgmSound)
-                {
-                    defaultMixerGroup = BgmSoundPlayer.DefaultAudioMixerGroup.name;
-                }
-                else if (this.SoundPlayerCaller.Sound is SeSound)
-                {
-                    defaultMixerGroup = SeSoundPlayer.DefaultAudioMixerGroup.name;
-                }
-            }catch (NullReferenceException){}
-             
-            EditorGUILayout.LabelField("DefaultAudioMixerGroup:", defaultMixerGroup);
-
-
             SoundEditor.ShowSoundData(this.SoundPlayerCaller.Sound);
         }
     }
