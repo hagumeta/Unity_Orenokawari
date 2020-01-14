@@ -18,6 +18,10 @@ namespace Extends.Sounds
         private void Awake()
         {
             this.audioSource = this.GetComponent<AudioSource>();
+            if (this.audioSource == null)
+            {
+                this.audioSource = this.gameObject.AddComponent<AudioSource>();
+            }
         }
 
         protected void SetAudioMixerGroup(AudioMixerGroup audioMixerGroup)
