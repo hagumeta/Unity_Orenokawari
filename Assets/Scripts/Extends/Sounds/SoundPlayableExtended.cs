@@ -24,7 +24,7 @@ namespace Extends.Sounds
             var soundPlayer = gameObject.GetComponent<SoundPlayer>();
             if (soundPlayer == null)
             {
-                soundPlayer = gameObject.AddComponent<BgmSoundPlayer>();
+                soundPlayer = gameObject.AddComponent<SoundPlayer>();
             }
             return soundPlayer;
         }

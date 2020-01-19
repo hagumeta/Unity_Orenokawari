@@ -11,7 +11,6 @@ namespace TestScripts
         void Start()
         {
             this.bgmSound.PlayGlobal();
-            Debug.Log(bgmSound.Title);
         }
     }
 }
