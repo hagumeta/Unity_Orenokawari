@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfc63b97007bfa748ac6d6f3726fdd55, type: 3}
-  m_Name: "stage_\u5E73\u5766\u306A\u9053"
+  m_Name: "stage_\u6050\u308D\u3057\u4E18"
   m_EditorClassIdentifier: 
   StageScene:
-    m_SceneName: Stage_9
-    m_path: Assets/Scenes/Stages/story1/Stage_9.unity
-  StageName: "\u5E73\u5766\u306A\u9053"
-  MaxCoinAmount: 20
-  HeiwaDeathBorder: 1
+    m_SceneName: Stage_11
+    m_path: Assets/Scenes/Stages/story1/Stage_11.unity
+  StageName: "\u306A\u3093\u304B\u306E\u907A\u8DE1\u524D"
+  MaxCoinAmount: 18
+  HeiwaDeathBorder: 2
