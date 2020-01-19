@@ -2,6 +2,7 @@
 // It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
 
 using System.IO;
+using System;
 
 namespace Fungus.EditorUtils
 {
@@ -13,13 +14,20 @@ namespace Fungus.EditorUtils
         public static string[] OnWillSaveAssets(string[] paths)
         {
             string sceneName = "";
-            
-            foreach (string path in paths)
+
+            try
             {
-                if (path.Contains(".unity"))
+                foreach (string path in paths)
                 {
-                    sceneName = Path.GetFileNameWithoutExtension(path);
+                    if (path.Contains(".unity"))
+                    {
+                        sceneName = Path.GetFileNameWithoutExtension(path);
+                    }
                 }
+            }
+            catch (Exception e)
+            {
+
             }
             
             if (sceneName.Length == 0)
