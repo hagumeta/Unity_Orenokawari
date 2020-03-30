@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Linq;
 
 namespace Extends.GameEvent
@@ -17,10 +16,5 @@ namespace Extends.GameEvent
                 listener.OnEventRaised();
             }
         }
-    }
-
-    public interface IGameEventListener
-    {
-        void OnEventRaised();
     }
 }
