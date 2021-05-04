@@ -41,7 +41,6 @@ namespace Game.Story
         {
             var a = GameObject.FindObjectOfType<Stickman_PlayerOperationablePlatformActor>();
             a.Operation.Lock();
-            Debug.Log(a.Operation.Locked);
         }
     }
 }

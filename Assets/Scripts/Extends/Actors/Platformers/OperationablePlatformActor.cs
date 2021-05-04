@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-
+using Extends.Physics2DExtension;
 
 namespace Extends.Actors.Platformers
 {
@@ -42,13 +42,12 @@ namespace Extends.Actors.Platformers
                     if (this.Operation.Horizontal.IsPressing)
                     {
                         //入力アリなら入力方向に設定(1 or -1 or 0)
-                        RaycastHit2D[] hits = new RaycastHit2D[3];
+                        RaycastHit2D[] hits = new RaycastHit2D[6];
                         for (int i = 0; i < hits.Length; i++)
                         {
-                            float y = (i - 1) * 0.3f * this.transform.localScale.x;
+                            float y = (i - 2.5f) * 0.15f * this.transform.localScale.x;
                             Vector2 startPos = this.transform.position + new Vector3(0, y);
-                            Vector2 endPos = startPos + new Vector2(this.Operation.Horizontal.AxisRaw * 0.23f, 0);
-                            hits[i] = Physics2D.Linecast(startPos, endPos, this.layerMask);
+                            hits[i] = RaycastExtension.RaycastAndDraw(startPos, new Vector2(this.Operation.Horizontal.AxisRaw, 0), 0.23f, this.layerMask);
                         }
                         if (hits.Count(a => a.collider != null && !a.collider.isTrigger) <= 0)
                         {

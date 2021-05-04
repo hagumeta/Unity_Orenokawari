@@ -15,11 +15,15 @@ namespace Extends.CameraControlls
     /// </summary>
     public class Camera_TrackTransform : Abs_CameraContent
     {
-        public Transform TrackingTargetObjectTransform;
+//        public Transform TrackingTargetObjectTransform;
+        public string TrackingTargetObjectTag;
         public Vector2 TrackingCenterScreenPosition;
         public float TrackingSpeed;
         public bool IsTrackingSmooth;
         public bool IsFrozenScrollX, IsFrozenScrollY;
+
+
+        protected bool isCameraLocked = false;
 
         private Vector3 targetPosition
         {
@@ -29,6 +33,19 @@ namespace Extends.CameraControlls
                 return new Vector3(pos.x / Screen.width, pos.y / Screen.height);
             }
         }
+
+        private Transform TrackingTargetObjectTransform
+        {
+            get
+            {
+                if (this.cacheTargetTransform == null)
+                {
+                    this.cacheTargetTransform = GameObject.FindGameObjectWithTag(this.TrackingTargetObjectTag).transform;
+                }
+                return this.cacheTargetTransform;
+            }
+        }
+        private Transform cacheTargetTransform;
 
         private Vector3 camerapos;
         private Vector3 cameraPosition
@@ -42,7 +59,7 @@ namespace Extends.CameraControlls
                 if (this.IsFrozenScrollY) { value.y = this.cameraPosition.y; }
                 this.camerapos = value;
                 this.transform.DOKill();
-                this.transform.DOMove(this.camerapos, 0.5f);
+                this.transform.DOMove(this.camerapos, 0.2f);
             }
             get => this.camerapos;
         }
@@ -67,7 +84,7 @@ namespace Extends.CameraControlls
 
         private void Update()
         {
-            if (this.TrackingTargetObjectTransform != null)
+            if (!this.isCameraLocked && this.TrackingTargetObjectTransform != null)
             {
                 if (this.IsTrackingSmooth)
                 {
@@ -84,14 +101,33 @@ namespace Extends.CameraControlls
         private void TrackObjectSmooth()
         {
             Vector2 pos = (this.TrackingCenterScreenPosition) * this.CameraSizeInWorld;
-            var target = this.TrackingTargetObjectTransform.position - (Vector3)pos;
-            this.cameraPosition += (target - this.cameraPosition).normalized * this.TrackingSpeed;
+            Vector3 target = this.TrackingTargetObjectTransform.position - (Vector3)pos;
+            Vector3 move = Vector3.zero;
+            if (!this.IsFrozenScrollX)
+            {
+                move.x = target.x - this.cameraPosition.x;
+            }
+            if (!this.IsFrozenScrollY)
+            {
+                move.y = target.y - this.cameraPosition.y;
+            }
+            if (move.sqrMagnitude > 0 && move.sqrMagnitude < this.TrackingSpeed)
+            {
+                this.cameraPosition += move;
+            } 
+            else
+            {
+                this.cameraPosition += move.normalized * this.TrackingSpeed;
+            }
+
         }
 
         private void TrackObjectDiveded()
         {
             if (this.IsTargetObjectOutOfCamera)
             {
+                this.isCameraLocked = true;
+                this.Invoke("UnlockCamera", 0.2f);
                 if (this.targetPosition.x > 1) this.cameraPosition += new Vector3(this.CameraSizeInWorld.x, 0);
                 if (this.targetPosition.x < 0) this.cameraPosition -= new Vector3(this.CameraSizeInWorld.x, 0);
                 if (this.targetPosition.y > 1) this.cameraPosition += new Vector3(0, this.CameraSizeInWorld.y);
@@ -99,7 +135,10 @@ namespace Extends.CameraControlls
             }
         }
 
-
+        private void UnlockCamera()
+        {
+            this.isCameraLocked = false;
+        }
 
 
 
