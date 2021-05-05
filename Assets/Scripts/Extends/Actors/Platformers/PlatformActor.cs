@@ -31,7 +31,7 @@ namespace Extends.Actors.Platformers
         //メンバ変数
         public Animator Animator;
         protected Rigidbody2D Rigidbody;
-        protected CurrentStateManager CurrentState;
+        public CurrentStateManager CurrentState;
         protected AnimationManager Animation;
         /// <summary>
         /// ActorFootについて

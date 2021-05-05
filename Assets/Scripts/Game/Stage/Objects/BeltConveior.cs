@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-
+using Extends.Actors.Platformers;
 
 namespace Game.Stage.Objects
 {
@@ -32,7 +32,18 @@ namespace Game.Stage.Objects
             {
                 if (rigid != null && !rigid.isKinematic)
                 {
-                    rigid.position += this.FixedBeltSpeed;
+                    var actor = rigid.GetComponent<OperationablePlatformActor>();
+                    if (actor != null)
+                    {
+                        if (actor.CurrentState.IsLanding || actor.CurrentState.IsWallCatching)
+                        {
+                            rigid.position += this.FixedBeltSpeed;
+                        }
+                    }
+                    else
+                    {
+                        rigid.position += this.FixedBeltSpeed;
+                    }
                 }
                 else
                 {

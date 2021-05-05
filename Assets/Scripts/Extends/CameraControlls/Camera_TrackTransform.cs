@@ -40,7 +40,11 @@ namespace Extends.CameraControlls
             {
                 if (this.cacheTargetTransform == null)
                 {
-                    this.cacheTargetTransform = GameObject.FindGameObjectWithTag(this.TrackingTargetObjectTag).transform;
+                    var tar = GameObject.FindGameObjectWithTag(this.TrackingTargetObjectTag);
+                    if (tar)
+                    {
+                        this.cacheTargetTransform = tar.transform;
+                    }
                 }
                 return this.cacheTargetTransform;
             }
