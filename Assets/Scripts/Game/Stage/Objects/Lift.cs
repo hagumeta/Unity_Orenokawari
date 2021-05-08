@@ -20,7 +20,7 @@ namespace Game.Stage.Objects
         }
 
         // Update is called once per frame
-        void Update()
+        void FixedUpdate()
         {
             this.liftVelocity = (this.rigidbody.position - this.prevPos);
             this.updateOnLiftVelocities();
@@ -49,6 +49,7 @@ namespace Game.Stage.Objects
         {
             foreach (var rigid in this.listOnLift)
             {
+                //rigid.velocity += this.liftVelocity * Time.deltaTime;
                 rigid.position += this.liftVelocity;
             }
         }
