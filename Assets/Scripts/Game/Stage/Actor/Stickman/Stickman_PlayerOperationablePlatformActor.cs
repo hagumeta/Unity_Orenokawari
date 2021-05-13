@@ -6,7 +6,7 @@ using Extends.Actors.Platformers;
 
 
 
-namespace Game.Stage.Actor
+namespace Game.Stage.Actor.Stickman
 {
     [RequireComponent(typeof(CameraFocusThis))]
     public class Stickman_PlayerOperationablePlatformActor : PlayerOperationablePlatformActor, IPlayer

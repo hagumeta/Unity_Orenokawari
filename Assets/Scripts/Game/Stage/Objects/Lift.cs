@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 namespace Game.Stage.Objects
 {
@@ -38,7 +39,8 @@ namespace Game.Stage.Objects
         private void OnCollisionExit2D(Collision2D collision)
         {
             var rigid = collision.transform.GetComponent<Rigidbody2D>();
-            if (rigid != null && !rigid.isKinematic && this.listOnLift.Exists(ri => ri.name == rigid.name))
+            if (rigid == null) return;
+            if (!rigid.isKinematic && this.listOnLift.Exists(ri => ri.name == rigid.name))
             {
                 this.listOnLift.Remove(rigid);
             }
@@ -47,11 +49,17 @@ namespace Game.Stage.Objects
 
         private void updateOnLiftVelocities()
         {
+            var remList = new List<Rigidbody2D>();
             foreach (var rigid in this.listOnLift)
             {
-                //rigid.velocity += this.liftVelocity * Time.deltaTime;
-                rigid.position += this.liftVelocity;
+                if (rigid != null && !rigid.isKinematic)
+                {
+                    rigid.position += this.liftVelocity;
+                } else {
+                    remList.Add(rigid);
+                }
             }
+            this.listOnLift.Except(remList);
         }
     }
 }

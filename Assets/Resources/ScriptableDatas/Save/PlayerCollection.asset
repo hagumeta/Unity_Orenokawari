@@ -26,6 +26,9 @@ MonoBehaviour:
     - deathType: 1
       CorpseObject: {fileID: 1622700874935762186, guid: 421ec45f883468144826558ccfee7a3f,
         type: 3}
+    - deathType: 3
+      CorpseObject: {fileID: 5469690851861098450, guid: 984de7f4667936043a9945d8434bcb14,
+        type: 3}
     namusanObject: {fileID: 5560380297084744315, guid: ce259866f7a3a834ca4906d7774e0f22,
       type: 3}
     namusanSound: {fileID: 8300000, guid: 50df4173ac59c50478120e05714bdb9b, type: 3}

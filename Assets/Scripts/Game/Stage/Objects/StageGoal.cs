@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Game.Stage.Actor;
+using Game.Stage.Actor.Stickman;
 
 namespace Game.Stage.Objects
 {

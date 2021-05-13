@@ -22,3 +22,6 @@ MonoBehaviour:
   - deathType: 0
     imageIcon: {fileID: 8669461306297250336, guid: fd6246965e87c7940a082c5c423bc8e5,
       type: 3}
+  - deathType: 3
+    imageIcon: {fileID: 8669461306297250336, guid: fd6246965e87c7940a082c5c423bc8e5,
+      type: 3}

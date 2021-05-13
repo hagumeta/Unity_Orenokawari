@@ -39,7 +39,8 @@ namespace Game
     {
         StickingDeath,
         BurningDeath,
-        FallingDeath
+        FallingDeath,
+        PressedDeath
     }
 
     public static class DeathTypeExtend{

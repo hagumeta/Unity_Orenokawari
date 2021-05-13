@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Game.Stage.Corpse;
 using Extends.CameraControlls;
-using Game.Stage.Actor;
+using Game.Stage.Actor.Stickman;
 
 namespace Game.Story
 {
